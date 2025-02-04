@@ -40,7 +40,7 @@ export const Subreddit = () => {
     }
 
     return (
-        <section>
+        <section className="bg-gray-50 h-screen overflow-y-auto">
             <Header subreddit={`r/${subreddit}`} />
             {data?.data.children.map((post: RedditPost) => (
                 <Post
