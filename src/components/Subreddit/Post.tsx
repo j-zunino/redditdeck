@@ -15,8 +15,6 @@ export const Post = ({
 }: Props) => {
     return (
         <>
-            <div className="border-gray-100 border-1"></div>
-
             <article className="flex items-center bg-gray-50 hover:bg-gray-100 p-4 m-2 rounded-xl cursor-pointer">
                 <div className="flex-row justify-center text-center m-4 ml-0">
                     {score >= 0 ? (
@@ -63,6 +61,8 @@ export const Post = ({
                     </span>
                 </div>
             </article>
+
+            <div className="border-gray-200 border-1"></div>
         </>
     );
 };
