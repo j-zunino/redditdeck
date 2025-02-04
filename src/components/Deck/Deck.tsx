@@ -1,7 +1,10 @@
 import { useFetch } from '../../hooks';
+import { Header } from './Header';
 import { Post } from './Post';
 
-const url = 'https://www.reddit.com/r/neovim.json';
+const subreddit = 'neovim';
+
+const url = `https://www.reddit.com/r/${subreddit}.json`;
 
 interface RedditPost {
     data: {
@@ -38,18 +41,18 @@ export const Deck = () => {
 
     return (
         <section>
+            <Header subreddit={`r/${subreddit}`} />
             {data?.data.children.map((post: RedditPost) => (
-                <div className="border-gray-100 border-1" key={post.data.id}>
-                    <Post
-                        author={post.data.author}
-                        title={post.data.title}
-                        score={post.data.score}
-                        link_flair_text={post.data.link_flair_text}
-                        link_flair_background_color={
-                            post.data.link_flair_background_color
-                        }
-                    />
-                </div>
+                <Post
+                    key={post.data.id}
+                    author={post.data.author}
+                    title={post.data.title}
+                    score={post.data.score}
+                    link_flair_text={post.data.link_flair_text}
+                    link_flair_background_color={
+                        post.data.link_flair_background_color
+                    }
+                />
             ))}
         </section>
     );
