@@ -1,5 +1,11 @@
+import { Deck } from './components';
+
 function App() {
-    return <></>;
+    return (
+        <>
+            <Deck />
+        </>
+    );
 }
 
 export default App;
