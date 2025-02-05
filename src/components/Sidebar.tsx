@@ -1,7 +1,7 @@
 export const Sidebar = () => {
     return (
-        <aside className="bg-white border-gray-200 border-r-1 flex justify-center items-center z-10 sticky left-0 top-0 p-2 h-screen text-2xl font-bold">
-            <div className="text-black p-2 hover:bg-gray-50 hover:rounded-full">
+        <aside className="bg-white border-gray-200 border-r-1 flex justify-center z-10 sticky left-0 top-0 p-2 h-screen text-2xl font-bold">
+            <div className="text-black p-2 max-h-fit hover:bg-gray-50 hover:rounded-full">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
