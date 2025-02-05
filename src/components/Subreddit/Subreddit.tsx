@@ -2,9 +2,10 @@ import { useFetch } from '../../hooks';
 import { Header } from './Header';
 import { Post } from './Post';
 
-const subreddit = 'neovim';
-
-const url = `https://www.reddit.com/r/${subreddit}.json`;
+// const subreddit = 'neovim';
+interface Props {
+    subreddit: string;
+}
 
 interface RedditPost {
     data: {
@@ -14,6 +15,10 @@ interface RedditPost {
         score: number;
         link_flair_text: string;
         link_flair_background_color: string;
+        thumbnail: string;
+        thumbnail_height: number;
+        thumbnail_width: number;
+        is_video: boolean;
     };
 }
 
@@ -23,7 +28,9 @@ interface RedditResponse {
     };
 }
 
-export const Subreddit = () => {
+export const Subreddit = ({ subreddit }: Props) => {
+    const url = `https://www.reddit.com/r/${subreddit}.json`;
+
     const { data, loading, error } = useFetch<RedditResponse>(url);
 
     if (loading) {
@@ -52,6 +59,10 @@ export const Subreddit = () => {
                     link_flair_background_color={
                         post.data.link_flair_background_color
                     }
+                    thumbnail={post.data.thumbnail}
+                    thumbnail_height={post.data.thumbnail_height}
+                    thumbnail_width={post.data.thumbnail_width}
+                    is_video={post.data.is_video}
                 />
             ))}
         </section>
