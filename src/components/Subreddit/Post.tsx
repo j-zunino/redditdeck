@@ -21,8 +21,8 @@ export const Post = ({
 }: Props) => {
     return (
         <>
-            <article className="flex items-center bg-gray-50 hover:bg-gray-100 p-4 m-2 rounded-xl cursor-pointer">
-                <div className="flex-row justify-center text-center m-4 ml-0">
+            <article className="m-2 flex cursor-pointer items-center rounded-xl bg-gray-50 p-4 hover:bg-gray-100">
+                <div className="m-4 ml-0 flex-row justify-center justify-items-center text-center">
                     {score >= 0 ? (
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +56,10 @@ export const Post = ({
                     )}
                     <p>{score}</p>
                 </div>
-                {is_video === true || thumbnail === 'self' ? (
-                    <div className="flex bg-gray-200 text-gray-500 rounded-md justify-center items-center w-24 h-20 min-w-20 mr-4">
+                {is_video === true ||
+                thumbnail === 'self' ||
+                thumbnail === 'default' ? (
+                    <div className="min-w-24 mr-4 flex h-20 w-24 items-center justify-center rounded-md bg-gray-200 text-gray-500">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -80,14 +82,14 @@ export const Post = ({
                     <img
                         src={thumbnail}
                         alt=""
-                        className="w-24 h-20 min-w-20 mr-4 rounded-md object-cover"
+                        className="min-w-24 mr-4 h-20 w-24 rounded-md object-cover"
                     />
                 )}
                 <div>
                     <p>u/{author}</p>
-                    <h2 className="font-black mb-3">{title}</h2>
+                    <h2 className="mb-3 font-black">{title}</h2>
                     <span
-                        className="text-dark text-xs p-2 py-0.5 rounded-full"
+                        className="text-dark rounded-full p-2 py-0.5 text-xs"
                         style={{ backgroundColor: link_flair_background_color }}
                     >
                         {link_flair_text}
@@ -95,7 +97,7 @@ export const Post = ({
                 </div>
             </article>
 
-            <div className="border-gray-200 border-1 mx-2"></div>
+            <div className="border-1 mx-2 border-gray-200"></div>
         </>
     );
 };
