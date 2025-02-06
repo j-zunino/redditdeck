@@ -47,7 +47,7 @@ export const Subreddit = ({ subreddit }: Props) => {
     }
 
     return (
-        <section className="h-screen overflow-y-auto bg-gray-50">
+        <section className="h-screen flex-1 overflow-y-auto bg-gray-50">
             <Header subreddit={`r/${subreddit}`} />
             {data?.data.children.map((post: RedditPost) => (
                 <Post

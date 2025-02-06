@@ -3,10 +3,12 @@ import { Subreddit } from '../Subreddit/Subreddit';
 
 export const Deck = () => {
     return (
-        <div className="flex">
+        <div className="flex h-screen">
             <Sidebar />
-            <Subreddit subreddit="neovim" />
-            {/* <Subreddit subreddit="unixporn" /> */}
+            <div className="flex flex-1">
+                <Subreddit subreddit="all" />
+                <Subreddit subreddit="unixporn" />
+            </div>
         </div>
     );
 };
