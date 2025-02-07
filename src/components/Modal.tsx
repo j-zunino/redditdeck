@@ -8,7 +8,7 @@ interface Props {
     buttonAccept: string;
     isOpen: boolean;
     onClose: () => void;
-    parentMethod?: () => void;
+    // parentMethod?: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export const Modal = ({
@@ -18,8 +18,8 @@ export const Modal = ({
     button,
     buttonAccept,
     isOpen,
-    onClose,
-    parentMethod
+    onClose
+    // parentMethod
 }: Props) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -83,7 +83,7 @@ export const Modal = ({
                             </button>
                         )}
                         <button
-                            onClick={parentMethod}
+                            // onClick={parentMethod}
                             className="rounded-full bg-orange-600 p-2 px-4 text-white hover:bg-orange-700"
                         >
                             {buttonAccept}

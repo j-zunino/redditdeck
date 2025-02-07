@@ -20,8 +20,11 @@ export const useFetch = <T>(url: string): Props<T> => {
         setLoading(true);
         const fetchData = async () => {
             try {
-                const response = await fetch(url, controller);
-                if (!response.ok) throw new Error('Failed to fetch data.');
+                const response = await fetch(url, {
+                    signal: controller.signal
+                });
+                if (!response.ok)
+                    throw new Error(`HTTPS error! Status: ${response.status}`);
 
                 const jsonData: T = await response.json();
                 setData(jsonData);

@@ -15,9 +15,9 @@ function App() {
                 buttonAccept="Add"
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                parentMethod={(event) => {
-                    event.preventDefault();
-                }}
+                // parentMethod={(event) => {
+                // event.preventDefault();
+                // }}
             />
 
             <div className="flex h-screen">

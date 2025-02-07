@@ -1,8 +1,9 @@
 import { useFetch } from '../../hooks';
+import { ErrorIcon } from '../icons';
 import { Header } from './Header';
 import { Post } from './Post';
+import { SubredditSkeleton } from './SubredditSkeleton';
 
-// const subreddit = 'neovim';
 interface Props {
     subreddit: string;
 }
@@ -34,13 +35,18 @@ export const Subreddit = ({ subreddit }: Props) => {
     const { data, loading, error } = useFetch<RedditResponse>(url);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <SubredditSkeleton />;
     }
 
     if (error) {
         return (
-            <div>
-                <div>UPS! There has ben an error</div>
+            <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500">
+                <div className="animate-pulse">
+                    <ErrorIcon />
+                </div>
+                <h2 className="text-xl font-bold">
+                    UPS! There has ben an error:
+                </h2>
                 <p>{error.message}</p> );
             </div>
         );
