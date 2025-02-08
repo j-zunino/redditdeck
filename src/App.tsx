@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { Deck, Sidebar } from './components';
-import { Modal } from './components/Modal';
+import { Deck, Modal, Sidebar } from './components';
 
 function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [subRedditList, setSubRedditList] = useState(['all']);
+
+    const handleAddSubreddit = (subreddit: string) => {
+        if (subreddit.trim() && !subRedditList.includes(subreddit.trim())) {
+            setSubRedditList([...subRedditList, subreddit.trim()]);
+        }
+        setIsModalOpen(false);
+    };
 
     return (
         <>
@@ -15,9 +22,7 @@ function App() {
                 buttonAccept="Add"
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                // parentMethod={(event) => {
-                // event.preventDefault();
-                // }}
+                onSubmit={handleAddSubreddit}
             />
 
             <div className="flex h-screen">
@@ -27,7 +32,7 @@ function App() {
                     }}
                 />
                 <div className="flex flex-1">
-                    <Deck />
+                    <Deck subRedditList={subRedditList} />
                 </div>
             </div>
         </>

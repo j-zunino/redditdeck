@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
     title: string;
@@ -8,7 +8,7 @@ interface Props {
     buttonAccept: string;
     isOpen: boolean;
     onClose: () => void;
-    // parentMethod?: (event: React.FormEvent<HTMLFormElement>) => void;
+    onSubmit?: (input: string) => void | undefined;
 }
 
 export const Modal = ({
@@ -18,10 +18,11 @@ export const Modal = ({
     button,
     buttonAccept,
     isOpen,
-    onClose
-    // parentMethod
+    onClose,
+    onSubmit
 }: Props) => {
     const modalRef = useRef<HTMLDivElement>(null);
+    const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -50,6 +51,22 @@ export const Modal = ({
         };
     }, [isOpen, onClose]);
 
+    useEffect(() => {
+        if (!isOpen) {
+            setInputValue('');
+        }
+    }, [isOpen]);
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+
+        if (!onSubmit) return null;
+
+        if (inputValue.trim()) {
+            onSubmit(inputValue);
+        }
+    };
+
     if (!isOpen) return null;
 
     return (
@@ -63,11 +80,17 @@ export const Modal = ({
                     <h2 className="text-xl font-bold">{title}</h2>
                     <p className="text-gray-600">{body}</p>
                 </div>
-                <form action="" className="flex flex-col">
+                <form onSubmit={handleSubmit} className="flex flex-col">
                     {placeHolder && (
                         <input
                             required
+                            name="subRedditInput"
+                            autoFocus={true}
+                            value={inputValue}
                             type="text"
+                            onChange={(event) =>
+                                setInputValue(event.target.value)
+                            }
                             placeholder={placeHolder}
                             className="mx-10 mb-4 rounded-full bg-gray-100 p-2 px-4"
                         />
@@ -83,7 +106,7 @@ export const Modal = ({
                             </button>
                         )}
                         <button
-                            // onClick={parentMethod}
+                            type="submit"
                             className="rounded-full bg-orange-600 p-2 px-4 text-white hover:bg-orange-700"
                         >
                             {buttonAccept}
@@ -91,6 +114,7 @@ export const Modal = ({
                     </div>
                 </form>
             </article>
+
             <div className="absolute z-20 h-full w-full bg-gray-950 opacity-40"></div>
         </>
     );

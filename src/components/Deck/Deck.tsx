@@ -1,10 +1,15 @@
-import { Subreddit } from '../Subreddit/Subreddit';
+import { Subreddit } from '../../components';
 
-export const Deck = () => {
+interface Props {
+    subRedditList: string[];
+}
+
+export const Deck = ({ subRedditList }: Props) => {
     return (
         <>
-            <Subreddit subreddit="neovim" />
-            <Subreddit subreddit="unixporn" />
+            {subRedditList.map((subReddit) => (
+                <Subreddit key={subReddit} subreddit={subReddit} />
+            ))}
         </>
     );
 };

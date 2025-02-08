@@ -1,8 +1,5 @@
 import { useFetch } from '../../hooks';
-import { ErrorIcon } from '../icons';
-import { Header } from './Header';
-import { Post } from './Post';
-import { SubredditSkeleton } from './SubredditSkeleton';
+import { ErrorIcon, Header, Post, SubredditSkeleton } from '../../components';
 
 interface Props {
     subreddit: string;

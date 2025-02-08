@@ -1,5 +1,4 @@
-import { UpvoteIcon, DownvoteIcon } from '../icons';
-import { Thumbnail } from '../Thumbnail';
+import { Thumbnail, UpvoteIcon, DownvoteIcon } from '../../components';
 
 interface Props {
     author: string;

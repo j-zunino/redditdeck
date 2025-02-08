@@ -1,4 +1,4 @@
-import { ArticleIcon } from './icons';
+import { ArticleIcon } from '../../components';
 
 interface Props {
     thumbnail: string;
@@ -11,14 +11,14 @@ export const Thumbnail = ({ thumbnail, is_video }: Props) => {
             {is_video === true ||
             thumbnail === 'self' ||
             thumbnail === 'default' ? (
-                <div className="min-w-24 mr-4 flex h-20 w-24 items-center justify-center rounded-md bg-gray-200 text-gray-500">
+                <div className="min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md bg-gray-200 text-gray-500 lg:flex">
                     <ArticleIcon />
                 </div>
             ) : (
                 <img
                     src={thumbnail}
                     alt=""
-                    className="min-w-24 mr-4 h-20 w-24 rounded-md object-cover"
+                    className="min-w-24 mr-4 hidden h-20 w-24 rounded-md object-cover lg:flex"
                 />
             )}
         </>
