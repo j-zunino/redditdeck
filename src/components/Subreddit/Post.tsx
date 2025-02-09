@@ -35,7 +35,7 @@ export const Post = ({
                         {title}
                     </h2>
                     <div className="flex items-center text-center">
-                        <div className="mr-4 flex h-fit">
+                        <div className="mr-4 flex h-fit items-center">
                             {score >= 0 ? <UpvoteIcon /> : <DownvoteIcon />}
                             <p className="flex justify-center">{score}</p>
                         </div>
