@@ -40,7 +40,7 @@ export const Post = ({
                             <p className="flex justify-center">{score}</p>
                         </div>
 
-                        {link_flair_text !== null ? (
+                        {link_flair_text === null ? undefined : (
                             <span
                                 className="text-dark rounded-full p-2 py-0.5 text-xs"
                                 style={{
@@ -53,7 +53,7 @@ export const Post = ({
                             >
                                 {link_flair_text}
                             </span>
-                        ) : undefined}
+                        )}
                     </div>
                 </div>
             </article>
