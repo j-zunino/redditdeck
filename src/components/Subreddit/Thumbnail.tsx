@@ -1,11 +1,12 @@
 import { ArticleIcon } from '../../components';
 
 interface Props {
+    alt: string;
     thumbnail: string;
     is_video: boolean;
 }
 
-export const Thumbnail = ({ thumbnail, is_video }: Props) => {
+export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
     return (
         <>
             {is_video === true ||
@@ -17,7 +18,7 @@ export const Thumbnail = ({ thumbnail, is_video }: Props) => {
             ) : (
                 <img
                     src={thumbnail}
-                    alt=""
+                    alt={alt}
                     className="min-w-24 mr-4 hidden h-20 w-24 rounded-md object-cover lg:flex"
                 />
             )}
