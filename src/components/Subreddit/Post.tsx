@@ -1,7 +1,7 @@
 import {
     IconArrowBigDown,
     IconArrowBigUp,
-    IconLink
+    IconExternalLink
 } from '@tabler/icons-react';
 import { Thumbnail } from '../../components';
 
@@ -53,7 +53,7 @@ export const Post = ({
 
                         {link_flair_text === null ? undefined : (
                             <span
-                                className="text-dark mr-2 rounded-full p-2 py-0.5 text-xs"
+                                className="mr-2 rounded-full p-2 py-0.5 text-xs"
                                 style={{
                                     backgroundColor:
                                         link_flair_background_color === '' ||
@@ -73,7 +73,7 @@ export const Post = ({
                             rel="noreferrer"
                             className="rounded-full p-1 text-gray-400 opacity-0 transition-all duration-300 hover:bg-sky-200 hover:text-sky-400 group-hover:opacity-100"
                         >
-                            <IconLink size={20} />
+                            <IconExternalLink size={20} />
                         </a>
                     </div>
                 </div>
