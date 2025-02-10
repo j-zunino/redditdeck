@@ -100,6 +100,8 @@ export const Modal = ({
                             <button
                                 onClick={onClose}
                                 type="button"
+                                role="button"
+                                aria-label={button}
                                 className="mr-4 rounded-full bg-gray-100 p-2 px-4 text-gray-500 hover:bg-gray-200"
                             >
                                 {button}
@@ -107,6 +109,8 @@ export const Modal = ({
                         )}
                         <button
                             type="submit"
+                            role="button"
+                            aria-label={buttonAccept}
                             className="rounded-full bg-orange-600 p-2 px-4 text-white hover:bg-orange-700"
                         >
                             {buttonAccept}

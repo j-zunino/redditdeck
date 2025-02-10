@@ -69,6 +69,7 @@ export const Post = ({
                         <a
                             href={permalink}
                             target="_blank"
+                            aria-label={`Read more about: ${title}`}
                             rel="noreferrer"
                             className="rounded-full p-1 text-gray-400 hover:bg-gray-200"
                         >
