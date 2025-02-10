@@ -30,7 +30,7 @@ export const Post = ({
 }: Props) => {
     return (
         <>
-            <article className="m-2 flex items-center rounded-xl bg-gray-50 p-2 hover:bg-gray-100">
+            <article className="group m-2 flex items-center rounded-xl bg-gray-50 p-2 hover:bg-gray-100">
                 <Thumbnail
                     thumbnail={thumbnail}
                     is_video={is_video}
@@ -71,7 +71,7 @@ export const Post = ({
                             target="_blank"
                             aria-label={`Read more about: ${title}`}
                             rel="noreferrer"
-                            className="rounded-full p-1 text-gray-400 hover:bg-gray-200"
+                            className="rounded-full p-1 text-gray-400 opacity-0 transition-all duration-300 hover:bg-sky-200 hover:text-sky-400 group-hover:opacity-100"
                         >
                             <IconLink size={20} />
                         </a>
