@@ -1,4 +1,4 @@
-import { ArticleIcon } from '../../components';
+import { IconArticle } from '@tabler/icons-react';
 
 interface Props {
     alt: string;
@@ -13,7 +13,7 @@ export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
             thumbnail === 'self' ||
             thumbnail === 'default' ? (
                 <div className="min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md bg-gray-200 text-gray-500 lg:flex">
-                    <ArticleIcon />
+                    <IconArticle />
                 </div>
             ) : (
                 <img

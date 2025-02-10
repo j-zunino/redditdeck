@@ -1,5 +1,6 @@
+import { IconExclamationCircle } from '@tabler/icons-react';
+import { Header, Post, SubredditSkeleton } from '../../components';
 import { useFetch } from '../../hooks';
-import { ErrorIcon, Header, Post, SubredditSkeleton } from '../../components';
 
 interface Props {
     subreddit: string;
@@ -17,6 +18,7 @@ interface RedditPost {
         thumbnail_height: number;
         thumbnail_width: number;
         is_video: boolean;
+        permalink: string;
     };
 }
 
@@ -39,7 +41,7 @@ export const Subreddit = ({ subreddit }: Props) => {
         return (
             <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500">
                 <div className="animate-pulse">
-                    <ErrorIcon />
+                    <IconExclamationCircle />
                 </div>
                 <h2 className="text-xl font-bold">
                     UPS! There has ben an error:
@@ -66,6 +68,7 @@ export const Subreddit = ({ subreddit }: Props) => {
                     thumbnail_height={post.data.thumbnail_height}
                     thumbnail_width={post.data.thumbnail_width}
                     is_video={post.data.is_video}
+                    permalink={`https://www.reddit.com/${post.data.permalink}`}
                 />
             ))}
         </section>

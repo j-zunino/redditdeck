@@ -1,4 +1,4 @@
-import { PlusIcon } from './icons';
+import { IconPlus } from '@tabler/icons-react';
 
 interface Props {
     parentMethod?: () => void;
@@ -11,7 +11,7 @@ export const Sidebar = ({ parentMethod }: Props) => {
                 onClick={parentMethod}
                 className="max-h-fit p-2 text-black hover:rounded-full hover:bg-gray-50"
             >
-                <PlusIcon />
+                <IconPlus />
             </button>
         </nav>
     );

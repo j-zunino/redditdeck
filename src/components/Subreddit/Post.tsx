@@ -1,4 +1,9 @@
-import { Thumbnail, UpvoteIcon, DownvoteIcon } from '../../components';
+import {
+    IconArrowBigDown,
+    IconArrowBigUp,
+    IconLink
+} from '@tabler/icons-react';
+import { Thumbnail } from '../../components';
 
 interface Props {
     author: string;
@@ -10,6 +15,7 @@ interface Props {
     thumbnail_height: number;
     thumbnail_width: number;
     is_video: boolean;
+    permalink: string;
 }
 
 export const Post = ({
@@ -19,11 +25,12 @@ export const Post = ({
     link_flair_text,
     link_flair_background_color,
     thumbnail,
-    is_video
+    is_video,
+    permalink
 }: Props) => {
     return (
         <>
-            <article className="m-2 flex cursor-pointer items-center rounded-xl bg-gray-50 p-2 hover:bg-gray-100">
+            <article className="m-2 flex items-center rounded-xl bg-gray-50 p-2 hover:bg-gray-100">
                 <Thumbnail
                     thumbnail={thumbnail}
                     is_video={is_video}
@@ -35,14 +42,18 @@ export const Post = ({
                         {title}
                     </h2>
                     <div className="flex items-center text-center">
-                        <div className="mr-4 flex h-fit items-center">
-                            {score >= 0 ? <UpvoteIcon /> : <DownvoteIcon />}
+                        <div className="mr-2 flex h-fit items-center">
+                            {score >= 0 ? (
+                                <IconArrowBigUp size={20} />
+                            ) : (
+                                <IconArrowBigDown size={20} />
+                            )}
                             <p className="flex justify-center">{score}</p>
                         </div>
 
                         {link_flair_text === null ? undefined : (
                             <span
-                                className="text-dark rounded-full p-2 py-0.5 text-xs"
+                                className="text-dark mr-2 rounded-full p-2 py-0.5 text-xs"
                                 style={{
                                     backgroundColor:
                                         link_flair_background_color === '' ||
@@ -54,6 +65,15 @@ export const Post = ({
                                 {link_flair_text}
                             </span>
                         )}
+
+                        <a
+                            href={permalink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-full p-1 text-gray-400 hover:bg-gray-200"
+                        >
+                            <IconLink size={20} />
+                        </a>
                     </div>
                 </div>
             </article>
