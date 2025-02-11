@@ -1,7 +1,7 @@
-import { IconExclamationCircle } from '@tabler/icons-react';
 import { useFetch } from '../../hooks';
 import { Post } from '../Post';
 import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
+import { ErrorMessage } from '../../components';
 
 interface Props {
     subreddit: string;
@@ -39,17 +39,7 @@ export const SubReddit = ({ subreddit }: Props) => {
     }
 
     if (error) {
-        return (
-            <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500">
-                <div className="animate-pulse">
-                    <IconExclamationCircle />
-                </div>
-                <h2 className="text-xl font-bold">
-                    UPS! There has ben an error:
-                </h2>
-                <p>{error.message}</p> );
-            </div>
-        );
+        return <ErrorMessage errorMessage={error.message} />;
     }
 
     return (
