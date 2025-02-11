@@ -1,4 +1,4 @@
-export const SubredditSkeleton = () => {
+export const SubRedditSkeleton = () => {
     return (
         <section className="flex-1 animate-pulse">
             {/* Header */}

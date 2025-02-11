@@ -3,7 +3,7 @@ import {
     IconArrowBigUp,
     IconExternalLink
 } from '@tabler/icons-react';
-import { Thumbnail } from '../../components';
+import { Thumbnail } from '../Post';
 
 interface Props {
     author: string;

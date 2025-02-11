@@ -1,4 +1,3 @@
-export * from './Deck/Deck.tsx';
-export * from './Subreddit/index.ts';
-export * from './Sidebar.tsx';
-export * from './Modal.tsx';
+export { Deck } from './Deck';
+export { Sidebar } from './Sidebar';
+export { Modal } from './Modal';

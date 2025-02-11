@@ -1,6 +1,7 @@
 import { IconExclamationCircle } from '@tabler/icons-react';
-import { Header, Post, SubredditSkeleton } from '../../components';
 import { useFetch } from '../../hooks';
+import { Post } from '../Post';
+import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
 
 interface Props {
     subreddit: string;
@@ -28,13 +29,13 @@ interface RedditResponse {
     };
 }
 
-export const Subreddit = ({ subreddit }: Props) => {
+export const SubReddit = ({ subreddit }: Props) => {
     const url = `https://www.reddit.com/r/${subreddit}.json`;
 
     const { data, loading, error } = useFetch<RedditResponse>(url);
 
     if (loading) {
-        return <SubredditSkeleton />;
+        return <SubRedditSkeleton />;
     }
 
     if (error) {
@@ -53,7 +54,7 @@ export const Subreddit = ({ subreddit }: Props) => {
 
     return (
         <section className="h-screen flex-1 overflow-y-auto bg-gray-50">
-            <Header subreddit={`r/${subreddit}`} />
+            <SubRedditHeader subreddit={`r/${subreddit}`} />
             {data?.data.children.map((post: RedditPost) => (
                 <Post
                     key={post.data.id}
