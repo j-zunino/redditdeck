@@ -25,7 +25,7 @@ function App() {
                 onSubmit={handleAddSubreddit}
             />
 
-            <div className="flex h-screen">
+            <div className="flex h-screen dark:bg-black dark:text-white">
                 <Sidebar
                     parentMethod={() => {
                         setIsModalOpen(true);

@@ -12,7 +12,7 @@ export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
             {is_video === true ||
             thumbnail === 'self' ||
             thumbnail === 'default' ? (
-                <div className="min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md bg-gray-200 text-gray-500 lg:flex">
+                <div className="min-w-24 border-1 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-black dark:text-zinc-700 lg:flex">
                     <IconArticle />
                 </div>
             ) : (

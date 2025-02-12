@@ -1,1 +1,2 @@
-export * from './useFetch';
+export { useFetch } from './useFetch';
+export { useTheme } from './useTheme';

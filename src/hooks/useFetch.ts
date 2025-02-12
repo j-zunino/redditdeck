@@ -15,7 +15,7 @@ export const useFetch = <T>(url: string): Props<T> => {
     const [error, setError] = useState<ErrorType>(null);
 
     useEffect(() => {
-        let controller = new AbortController();
+        const controller = new AbortController();
 
         setLoading(true);
         const fetchData = async () => {

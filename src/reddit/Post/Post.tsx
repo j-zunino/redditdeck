@@ -30,7 +30,7 @@ export const Post = ({
 }: Props) => {
     return (
         <>
-            <article className="group m-2 flex items-center rounded-xl bg-gray-50 p-2 hover:bg-gray-100">
+            <article className="group m-2 flex items-center rounded-xl p-2 hover:bg-gray-100 dark:hover:bg-zinc-900">
                 <Thumbnail
                     thumbnail={thumbnail}
                     is_video={is_video}
@@ -53,7 +53,7 @@ export const Post = ({
 
                         {link_flair_text === null ? undefined : (
                             <span
-                                className="mr-2 rounded-full p-2 py-0.5 text-xs"
+                                className="mr-2 rounded-full p-2 py-0.5 text-xs text-black"
                                 style={{
                                     backgroundColor:
                                         link_flair_background_color === '' ||
@@ -71,7 +71,7 @@ export const Post = ({
                             target="_blank"
                             aria-label={`Read more about: ${title}`}
                             rel="noreferrer"
-                            className="rounded-full p-1 text-gray-400 opacity-0 transition-all duration-300 hover:bg-sky-200 hover:text-sky-400 group-hover:opacity-100"
+                            className="rounded-full p-1 text-gray-400 opacity-0 transition-all duration-300 hover:bg-sky-200/50 hover:text-sky-400/50 group-hover:opacity-100 dark:text-zinc-600 dark:hover:bg-blue-500/30 dark:hover:text-blue-600/50"
                         >
                             <IconExternalLink size={20} />
                         </a>
@@ -79,7 +79,7 @@ export const Post = ({
                 </div>
             </article>
 
-            <div className="border-b-1 mx-2 border-gray-200"></div>
+            <div className="border-b-1 mx-2 border-gray-200 dark:border-zinc-700"></div>
         </>
     );
 };

@@ -74,11 +74,11 @@ export const Modal = ({
             <article
                 ref={modalRef}
                 role="dialog"
-                className="fixed inset-x-0 top-20 z-50 mx-auto flex max-h-fit max-w-xl flex-col rounded-md bg-white p-12 px-4 sm:w-3/4"
+                className="border-1 fixed inset-x-0 top-20 z-50 mx-auto flex max-h-fit max-w-xl flex-col rounded-md border-gray-200 bg-white p-12 px-4 text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white sm:w-3/4"
             >
                 <div className="mb-4 text-center">
                     <h2 className="text-xl font-bold">{title}</h2>
-                    <p className="text-gray-600">{body}</p>
+                    <p className="text-gray-600 dark:text-zinc-400">{body}</p>
                 </div>
                 <form onSubmit={handleSubmit} className="flex flex-col">
                     {placeHolder && (
@@ -92,7 +92,7 @@ export const Modal = ({
                                 setInputValue(event.target.value)
                             }
                             placeholder={placeHolder}
-                            className="mx-10 mb-4 rounded-full bg-gray-100 p-2 px-4"
+                            className="mx-10 mb-4 rounded-full bg-gray-100 p-2 px-4 dark:bg-zinc-700"
                         />
                     )}
                     <div className="flex justify-center">
@@ -102,7 +102,7 @@ export const Modal = ({
                                 type="button"
                                 role="button"
                                 aria-label={button}
-                                className="mr-4 rounded-full bg-gray-100 p-2 px-4 text-gray-500 hover:bg-gray-200"
+                                className="mr-4 rounded-full bg-gray-100 p-2 px-4 text-gray-500 hover:bg-gray-200 dark:bg-zinc-700 dark:text-white dark:hover:bg-zinc-800"
                             >
                                 {button}
                             </button>
@@ -119,7 +119,7 @@ export const Modal = ({
                 </form>
             </article>
 
-            <div className="absolute z-20 h-full w-full bg-gray-950 opacity-40"></div>
+            <div className="absolute z-20 h-full w-full bg-black/20"></div>
         </>
     );
 };
