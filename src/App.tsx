@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Deck, Modal, Sidebar } from './components';
 
 function App() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [subRedditList, setSubRedditList] = useState(['all']);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleAddSubreddit = (subreddit: string) => {
         if (subreddit.trim() && !subRedditList.includes(subreddit.trim())) {
             setSubRedditList([...subRedditList, subreddit.trim()]);
         }
-        setIsModalOpen(false);
+        setIsOpen(false);
     };
 
     return (
@@ -20,17 +20,13 @@ function App() {
                 placeHolder="Neovim"
                 button="Cancel"
                 buttonAccept="Add"
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
+                isOpen={isOpen}
                 onSubmit={handleAddSubreddit}
+                onClose={() => setIsOpen(false)}
             />
 
             <div className="flex h-screen dark:bg-black dark:text-white">
-                <Sidebar
-                    parentMethod={() => {
-                        setIsModalOpen(true);
-                    }}
-                />
+                <Sidebar parentMethod={() => setIsOpen(true)} />
                 <div className="flex flex-1">
                     <Deck subRedditList={subRedditList} />
                 </div>

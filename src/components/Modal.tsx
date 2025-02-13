@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useClickOutside } from '../hooks';
 
 interface Props {
     title: string;
@@ -21,35 +22,8 @@ export const Modal = ({
     onClose,
     onSubmit
 }: Props) => {
-    const modalRef = useRef<HTMLDivElement>(null);
     const [inputValue, setInputValue] = useState('');
-
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                onClose();
-            }
-        };
-
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                modalRef.current &&
-                !modalRef.current.contains(event.target as Node)
-            ) {
-                onClose();
-            }
-        };
-
-        if (isOpen) {
-            document.addEventListener('keydown', handleKeyDown);
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [isOpen, onClose]);
+    const { elementRef } = useClickOutside(onClose);
 
     useEffect(() => {
         if (!isOpen) {
@@ -59,9 +33,7 @@ export const Modal = ({
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-
-        if (!onSubmit) return null;
-
+        if (!onSubmit) return;
         if (inputValue.trim()) {
             onSubmit(inputValue);
         }
@@ -72,7 +44,7 @@ export const Modal = ({
     return (
         <>
             <article
-                ref={modalRef}
+                ref={elementRef}
                 role="dialog"
                 className="border-1 fixed inset-x-0 top-20 z-50 mx-auto flex max-h-fit max-w-xl flex-col rounded-md border-gray-200 bg-white p-12 px-4 text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-white sm:w-3/4"
             >
