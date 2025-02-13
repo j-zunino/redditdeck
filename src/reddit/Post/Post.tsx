@@ -71,7 +71,7 @@ export const Post = ({
                             target="_blank"
                             aria-label={`Read more about: ${title}`}
                             rel="noreferrer"
-                            className="rounded-full p-1 text-gray-400 opacity-0 transition-all duration-300 hover:bg-sky-200/50 hover:text-sky-400/50 group-hover:opacity-100 dark:text-zinc-600 dark:hover:bg-blue-500/30 dark:hover:text-blue-600/50"
+                            className="rounded-full p-1 text-gray-300 opacity-0 transition-all duration-300 hover:bg-gray-300/30 hover:text-gray-400/50 group-hover:opacity-100 dark:text-zinc-700 dark:hover:bg-zinc-700/30 dark:hover:text-zinc-600/50"
                         >
                             <IconExternalLink size={20} />
                         </a>
