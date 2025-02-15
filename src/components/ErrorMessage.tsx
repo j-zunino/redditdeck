@@ -6,7 +6,7 @@ interface Props {
 
 export const ErrorMessage = ({ errorMessage }: Props) => {
     return (
-        <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500">
+        <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500 dark:bg-black">
             <div className="animate-pulse">
                 <IconExclamationCircle />
             </div>
