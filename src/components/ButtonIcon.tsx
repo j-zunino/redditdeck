@@ -4,26 +4,27 @@ interface Props {
     labelStart?: string;
     labelEnd?: string;
     icon: ReactNode;
-    role?: string;
+    type?: 'button' | 'submit' | 'reset';
     ariaLabel: string;
     className?: string;
-    parentMethod?: () => void;
+    onClick?: () => void;
 }
 
 export const ButtonIcon = ({
     labelStart,
     labelEnd,
     icon,
-    role,
+    type,
     ariaLabel,
     className,
-    parentMethod
+    onClick
 }: Props) => {
     return (
         <button
-            className={`flex items-center justify-center gap-2 rounded-full p-2 text-sm ${className ? className : 'hover:bg-gray-50 dark:hover:bg-zinc-800'} `}
-            onClick={parentMethod}
-            role={role}
+            className={`flex items-center justify-center gap-2 rounded-full p-2 text-sm ${className ? className : 'hover:bg-gray-100 dark:hover:bg-zinc-800'} `}
+            onClick={onClick}
+            type={type}
+            role={type}
             aria-label={ariaLabel}
         >
             {labelStart}
