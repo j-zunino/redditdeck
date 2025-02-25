@@ -1,6 +1,6 @@
 export const SubRedditSkeleton = () => {
     return (
-        <section className="h-screen flex-1 overflow-y-auto dark:bg-black">
+        <section className="border-r-1 no-scrollbar h-screen flex-1 overflow-y-auto border-gray-200 dark:border-zinc-800 dark:bg-black">
             <div className="animate-pulse">
                 {/* Header */}
                 <div className="sticky top-0 flex h-12 w-full items-center justify-center bg-gray-50 text-2xl font-bold dark:bg-zinc-900">
