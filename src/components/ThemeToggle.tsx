@@ -10,10 +10,12 @@ export default function ThemeToggle() {
     };
 
     return (
-        <ButtonIcon
-            icon={<IconMoonStars />}
-            onClick={toggleTheme}
-            ariaLabel="Toggle Dark Mode"
-        />
+        <div>
+            <ButtonIcon
+                icon={<IconMoonStars />}
+                onClick={toggleTheme}
+                ariaLabel="Toggle Dark Mode"
+            />
+        </div>
     );
 }
