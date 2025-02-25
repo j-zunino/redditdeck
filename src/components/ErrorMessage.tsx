@@ -6,7 +6,7 @@ interface Props {
 
 export const ErrorMessage = ({ errorMessage }: Props) => {
     return (
-        <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-red-500">
+        <div className="border-r-1 flex h-screen flex-1 flex-col items-center justify-center border-gray-200 text-center text-red-500 dark:border-zinc-800">
             <div className="mb-2 inline-flex">
                 <IconExclamationCircleFilled
                     size={34}
