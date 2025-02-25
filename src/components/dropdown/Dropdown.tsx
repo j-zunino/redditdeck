@@ -22,9 +22,9 @@ export function Dropdown({ icon, children }: Props) {
             <ButtonIcon
                 icon={icon}
                 ariaLabel="Dropdown"
-                parentMethod={toggleDropdown}
+                onClick={toggleDropdown}
             />
-            {isOpen && <DropdownContent>{children}</DropdownContent>}
+            {isOpen ? <DropdownContent>{children}</DropdownContent> : null}
         </div>
     );
 }
