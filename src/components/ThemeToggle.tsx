@@ -12,8 +12,7 @@ export default function ThemeToggle() {
     return (
         <ButtonIcon
             icon={<IconMoonStars />}
-            parentMethod={toggleTheme}
-            role="button"
+            onClick={toggleTheme}
             ariaLabel="Toggle Dark Mode"
         />
     );

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useClickOutside } from '../hooks';
+import { ButtonIcon } from './ButtonIcon';
+import { IconCancel, IconPlus } from '@tabler/icons-react';
 
 interface Props {
     title: string;
@@ -53,7 +55,7 @@ export const Modal = ({
                     <p className="text-gray-600 dark:text-zinc-400">{body}</p>
                 </div>
                 <form onSubmit={handleSubmit} className="flex flex-col">
-                    {placeHolder && (
+                    {placeHolder ? (
                         <input
                             required
                             name="subRedditInput"
@@ -66,27 +68,24 @@ export const Modal = ({
                             placeholder={placeHolder}
                             className="mx-10 mb-4 rounded-full bg-gray-100 p-2 px-4 dark:bg-zinc-700"
                         />
-                    )}
+                    ) : null}
                     <div className="flex justify-center">
-                        {button && (
-                            <button
+                        {button ? (
+                            <ButtonIcon
+                                icon={<IconCancel size={20} />}
+                                labelEnd={button}
+                                ariaLabel={button}
                                 onClick={onClose}
-                                type="button"
-                                role="button"
-                                aria-label={button}
-                                className="mr-4 rounded-full bg-gray-100 p-2 px-4 text-gray-500 hover:bg-gray-200 dark:bg-zinc-700 dark:text-white dark:hover:bg-zinc-800"
-                            >
-                                {button}
-                            </button>
-                        )}
-                        <button
+                                className="mr-2 bg-gray-100 pr-4 text-gray-500 hover:bg-gray-200 dark:bg-zinc-700 dark:hover:bg-zinc-800"
+                            />
+                        ) : null}
+                        <ButtonIcon
+                            icon={<IconPlus size={20} />}
+                            labelEnd={buttonAccept}
+                            ariaLabel={buttonAccept}
                             type="submit"
-                            role="button"
-                            aria-label={buttonAccept}
-                            className="rounded-full bg-orange-600 p-2 px-4 text-white hover:bg-orange-700"
-                        >
-                            {buttonAccept}
-                        </button>
+                            className="bg-orange-600 pr-4 hover:bg-orange-700"
+                        />
                     </div>
                 </form>
             </article>

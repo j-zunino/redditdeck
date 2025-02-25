@@ -13,14 +13,15 @@ export const SubRedditHeader = ({ subreddit }: Props) => {
             <Dropdown icon={<IconDotsVertical />}>
                 <ButtonIcon
                     icon={<IconRefresh size={20} />}
-                    ariaLabel="Refresh subreddit"
                     labelEnd="Refresh"
+                    ariaLabel="Refresh subreddit"
+                    className="min-w-full hover:bg-gray-100 dark:hover:bg-zinc-800"
                 />
                 <ButtonIcon
                     icon={<IconTrash size={20} />}
-                    className="font-bold text-red-500 hover:bg-red-600/20"
-                    ariaLabel="Remove subreddit"
                     labelEnd="Remove"
+                    ariaLabel="Remove subreddit"
+                    className="min-w-full font-bold text-red-500 hover:bg-red-500/20"
                 />
             </Dropdown>
         </div>

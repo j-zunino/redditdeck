@@ -11,8 +11,7 @@ export const Sidebar = ({ parentMethod }: Props) => {
         <nav className="border-r-1 sticky left-0 top-0 z-10 flex h-screen flex-col items-start justify-between border-gray-200 bg-white p-2 text-2xl font-bold text-black dark:border-zinc-800 dark:bg-black dark:text-white">
             <ButtonIcon
                 icon={<IconPlus />}
-                parentMethod={parentMethod}
-                role="button"
+                onClick={parentMethod}
                 ariaLabel="Add Subreddit"
             />
 
@@ -24,7 +23,7 @@ export const Sidebar = ({ parentMethod }: Props) => {
                     target="_blank"
                     aria-label="See source code in GitHub"
                     rel="noreferrer"
-                    className="max-h-fit p-2 hover:rounded-full hover:bg-gray-50 dark:hover:bg-zinc-900"
+                    className="max-h-fit p-2 hover:rounded-full hover:bg-gray-100 dark:hover:bg-zinc-900"
                 >
                     <IconBrandGithub />
                 </a>
