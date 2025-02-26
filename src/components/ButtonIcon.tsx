@@ -14,12 +14,13 @@ export const ButtonIcon = ({
     labelStart,
     labelEnd,
     icon,
-    type,
+    type = 'button',
     ariaLabel,
     className,
     onClick
 }: Props) => {
     return (
+        // TODO: Add disabled styles
         <button
             className={`flex items-center justify-center gap-2 rounded-full p-2 text-sm ${className ? className : 'hover:bg-gray-100 dark:hover:bg-zinc-800'} `}
             onClick={onClick}
