@@ -2,6 +2,7 @@ import { useFetch } from '../../hooks';
 import { Post } from '../Post';
 import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
 import { ErrorMessage } from '../../components';
+import { useState } from 'react';
 
 interface Props {
     subreddit: string;
@@ -30,9 +31,15 @@ interface RedditResponse {
 }
 
 export const SubReddit = ({ subreddit }: Props) => {
+    const [refreshKey, setRefreshKey] = useState(0);
+
     const url = `https://www.reddit.com/r/${subreddit}.json`;
 
-    const { data, loading, error } = useFetch<RedditResponse>(url);
+    const { data, loading, error } = useFetch<RedditResponse>(url, refreshKey);
+
+    const handleRefresh = () => {
+        setRefreshKey((prevKey) => prevKey + 1);
+    };
 
     if (loading) {
         return <SubRedditSkeleton />;
@@ -44,7 +51,10 @@ export const SubReddit = ({ subreddit }: Props) => {
 
     return (
         <section className="no-scrollbar border-r-1 h-screen flex-1 overflow-y-auto border-gray-200 dark:border-zinc-800 dark:bg-black">
-            <SubRedditHeader subreddit={`r/${subreddit}`} />
+            <SubRedditHeader
+                subreddit={`r/${subreddit}`}
+                onRefresh={handleRefresh}
+            />
             {data?.data.children.map((post: RedditPost) => (
                 <Post
                     key={post.data.id}

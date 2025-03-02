@@ -9,15 +9,15 @@ interface Props<T> {
     error: ErrorType;
 }
 
-export const useFetch = <T>(url: string): Props<T> => {
+export const useFetch = <T>(url: string, refreshKey: number): Props<T> => {
     const [data, setData] = useState<Data<T>>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<ErrorType>(null);
 
     useEffect(() => {
         const controller = new AbortController();
-
         setLoading(true);
+
         const fetchData = async () => {
             try {
                 const response = await fetch(url, {
@@ -43,7 +43,7 @@ export const useFetch = <T>(url: string): Props<T> => {
         return () => {
             controller.abort();
         };
-    }, [url]);
+    }, [url, refreshKey]);
 
     return { data, loading, error };
 };
