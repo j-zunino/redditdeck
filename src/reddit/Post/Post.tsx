@@ -38,7 +38,7 @@ export const Post = ({
                 />
                 <div>
                     <p className="md:text-md text-xs sm:text-sm">u/{author}</p>
-                    <h2 className="md:text-md mb-2 text-xs font-black sm:text-sm">
+                    <h2 className="md:text-md mb-2 line-clamp-2 text-xs font-black sm:text-sm">
                         {title}
                     </h2>
                     <div className="flex items-center text-center">
