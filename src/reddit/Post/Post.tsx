@@ -8,7 +8,7 @@ import { Thumbnail } from './Thumbnail';
 interface Props {
     author: string;
     title: string;
-    score: number;
+    ups: number;
     link_flair_text: string;
     link_flair_background_color: string;
     thumbnail: string;
@@ -21,7 +21,7 @@ interface Props {
 export const Post = ({
     author,
     title,
-    score,
+    ups,
     link_flair_text,
     link_flair_background_color,
     thumbnail,
@@ -43,12 +43,12 @@ export const Post = ({
                     </h2>
                     <div className="flex items-center text-center">
                         <div className="mr-2 flex h-fit items-center">
-                            {score >= 0 ? (
+                            {ups >= 0 ? (
                                 <IconArrowBigUp size={20} />
                             ) : (
                                 <IconArrowBigDown size={20} />
                             )}
-                            <p className="flex justify-center">{score}</p>
+                            <p className="flex justify-center">{ups}</p>
                         </div>
 
                         {link_flair_text === null ? undefined : (
