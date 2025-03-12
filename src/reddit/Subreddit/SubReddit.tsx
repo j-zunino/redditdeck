@@ -13,7 +13,7 @@ interface RedditPost {
         id: string;
         author: string;
         title: string;
-        score: number;
+        ups: number;
         link_flair_text: string;
         link_flair_background_color: string;
         thumbnail: string;
@@ -60,7 +60,7 @@ export const SubReddit = ({ subreddit }: Props) => {
                     key={post.data.id}
                     author={post.data.author}
                     title={post.data.title}
-                    score={post.data.score}
+                    ups={post.data.ups}
                     link_flair_text={post.data.link_flair_text}
                     link_flair_background_color={
                         post.data.link_flair_background_color
