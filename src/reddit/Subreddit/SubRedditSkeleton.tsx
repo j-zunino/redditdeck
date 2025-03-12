@@ -24,7 +24,7 @@ export const SubRedditSkeleton = () => {
                             <div className="w-70 mb-4 h-4 rounded-md bg-gray-200 dark:bg-zinc-800"></div>
 
                             <div className="flex items-center text-center">
-                                {/* score */}
+                                {/* upvotes */}
                                 <div className="mr-4 flex">
                                     <div className="mr-1 h-4 w-4 rounded-full bg-gray-200 dark:bg-zinc-800"></div>
                                     <div className="h-4 w-10 rounded-md bg-gray-200 dark:bg-zinc-800"></div>
