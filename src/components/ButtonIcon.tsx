@@ -17,7 +17,7 @@ export const ButtonIcon = ({
     type = 'button',
     ariaLabel,
     className,
-    onClick
+    onClick,
 }: Props) => {
     return (
         // TODO: Add disabled styles

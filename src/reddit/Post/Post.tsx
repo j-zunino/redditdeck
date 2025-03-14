@@ -1,7 +1,7 @@
 import {
     IconArrowBigDown,
     IconArrowBigUp,
-    IconExternalLink
+    IconExternalLink,
 } from '@tabler/icons-react';
 import { Thumbnail } from './Thumbnail';
 
@@ -16,6 +16,8 @@ interface Props {
     thumbnail_width: number;
     is_video: boolean;
     permalink: string;
+    // edited: boolean;
+    // spoiler: boolean;
 }
 
 export const Post = ({
@@ -26,10 +28,11 @@ export const Post = ({
     link_flair_background_color,
     thumbnail,
     is_video,
-    permalink
+    permalink,
 }: Props) => {
     return (
         <>
+            {/* TODO: Lazy loading */}
             <article className="group m-2 flex items-center rounded-xl p-2 hover:bg-gray-100 dark:hover:bg-zinc-900">
                 <Thumbnail
                     thumbnail={thumbnail}
@@ -59,7 +62,7 @@ export const Post = ({
                                         link_flair_background_color === '' ||
                                         link_flair_background_color === null
                                             ? '#E7E7E7'
-                                            : link_flair_background_color
+                                            : link_flair_background_color,
                                 }}
                             >
                                 {link_flair_text}

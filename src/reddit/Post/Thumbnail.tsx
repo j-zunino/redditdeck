@@ -2,7 +2,7 @@ import {
     IconArticle,
     IconPhoto,
     IconVideo,
-    IconXxx
+    IconXxx,
 } from '@tabler/icons-react';
 import { ReactNode } from 'react';
 

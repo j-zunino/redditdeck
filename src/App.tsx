@@ -4,7 +4,7 @@ import {
     IconArrowLeft,
     IconCancel,
     IconExclamationCircleFilled,
-    IconPlus
+    IconPlus,
 } from '@tabler/icons-react';
 
 function App() {
