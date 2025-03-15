@@ -44,6 +44,7 @@ export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
             src={thumbnail}
             alt={alt}
             className="min-w-24 mr-4 hidden h-20 w-24 rounded-md object-cover lg:flex"
+            loading="lazy"
         />
     );
 };
