@@ -1,45 +1,20 @@
-import { useFetch } from '../../hooks';
-import { Post } from '../Post';
-import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
+import {
+    IconArrowBigDown,
+    IconArrowBigUp,
+    IconExternalLink,
+} from '@tabler/icons-react';
 import { ErrorMessage } from '../../components';
-import { useState } from 'react';
+import { Post } from '../Post';
+import { Thumbnail } from '../Post/Thumbnail';
+import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
+import { useSubRedditContext } from './SubRedditContext';
 
 interface Props {
     subreddit: string;
 }
 
-interface RedditPost {
-    data: {
-        id: string;
-        author: string;
-        title: string;
-        ups: number;
-        link_flair_text: string;
-        link_flair_background_color: string;
-        thumbnail: string;
-        thumbnail_height: number;
-        thumbnail_width: number;
-        is_video: boolean;
-        permalink: string;
-    };
-}
-
-interface RedditResponse {
-    data: {
-        children: RedditPost[];
-    };
-}
-
 export const SubReddit = ({ subreddit }: Props) => {
-    const [refreshKey, setRefreshKey] = useState(0);
-
-    const url = `https://www.reddit.com/r/${subreddit}.json`;
-
-    const { data, loading, error } = useFetch<RedditResponse>(url, refreshKey);
-
-    const handleRefresh = () => {
-        setRefreshKey((prevKey) => prevKey + 1);
-    };
+    const { data, loading, error, handleRefresh } = useSubRedditContext();
 
     if (loading) {
         return <SubRedditSkeleton />;
@@ -55,22 +30,67 @@ export const SubReddit = ({ subreddit }: Props) => {
                 subreddit={`r/${subreddit}`}
                 onRefresh={handleRefresh}
             />
-            {data?.data.children.map((post: RedditPost) => (
-                <Post
-                    key={post.data.id}
-                    author={post.data.author}
-                    title={post.data.title}
-                    ups={post.data.ups}
-                    link_flair_text={post.data.link_flair_text}
-                    link_flair_background_color={
-                        post.data.link_flair_background_color
-                    }
-                    thumbnail={post.data.thumbnail}
-                    thumbnail_height={post.data.thumbnail_height}
-                    thumbnail_width={post.data.thumbnail_width}
-                    is_video={post.data.is_video}
-                    permalink={`https://www.reddit.com/${post.data.permalink}`}
-                />
+            {data?.data.children.map((post) => (
+                <Post key={post.data.id}>
+                    <article className="group m-2 flex items-center rounded-xl p-2 hover:bg-gray-100 dark:hover:bg-zinc-900">
+                        <Thumbnail
+                            thumbnail={post.data.thumbnail}
+                            is_video={post.data.is_video}
+                            alt={post.data.title}
+                        />
+                        <div>
+                            <p className="md:text-md text-xs sm:text-sm">
+                                u/{post.data.author}
+                            </p>
+                            <h2 className="md:text-md mb-2 line-clamp-2 text-xs font-black sm:text-sm">
+                                {post.data.title}
+                            </h2>
+                            <div className="flex items-center text-center">
+                                <div className="mr-2 flex h-fit items-center">
+                                    {post.data.ups >= 0 ? (
+                                        <IconArrowBigUp size={20} />
+                                    ) : (
+                                        <IconArrowBigDown size={20} />
+                                    )}
+                                    <p className="flex justify-center">
+                                        {post.data.ups}
+                                    </p>
+                                </div>
+
+                                {post.data.link_flair_text ===
+                                null ? undefined : (
+                                    <span
+                                        className="mr-2 rounded-full p-2 py-0.5 text-xs text-black"
+                                        style={{
+                                            backgroundColor:
+                                                post.data
+                                                    .link_flair_background_color ===
+                                                    '' ||
+                                                post.data
+                                                    .link_flair_background_color ===
+                                                    null
+                                                    ? '#E7E7E7'
+                                                    : post.data
+                                                          .link_flair_background_color,
+                                        }}
+                                    >
+                                        {post.data.link_flair_text}
+                                    </span>
+                                )}
+
+                                <a
+                                    href={post.data.permalink}
+                                    target="_blank"
+                                    aria-label={`Read more about: ${post.data.title}`}
+                                    rel="noreferrer"
+                                    className="rounded-full p-1 text-gray-300 opacity-0 transition-all duration-300 hover:bg-gray-300/30 hover:text-gray-400/50 group-hover:opacity-100 dark:text-zinc-700 dark:hover:bg-zinc-700/30 dark:hover:text-zinc-600/50"
+                                >
+                                    <IconExternalLink size={20} />
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </Post>
             ))}
         </section>
     );

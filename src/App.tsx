@@ -1,11 +1,5 @@
+import { IconCancel, IconPlus } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { ButtonIcon, Deck, Modal, Sidebar } from './components';
-import {
-    IconArrowLeft,
-    IconCancel,
-    IconExclamationCircleFilled,
-    IconPlus,
-} from '@tabler/icons-react';
 import { Button, Deck, Modal, Sidebar } from './components';
 
 function App() {
@@ -74,20 +68,7 @@ function App() {
 
             <div className="flex h-screen dark:bg-black dark:text-white">
                 <Sidebar parentMethod={() => setIsOpen(true)} />
-                <div className="flex flex-1">
-                    {subRedditList.length > 0 ? (
-                        <Deck subRedditList={subRedditList} />
-                    ) : (
-                        <div className="flex h-screen flex-1 flex-col items-center justify-center text-center text-sky-400">
-                            <IconArrowLeft className="left-15 absolute top-4" />
-                            <IconExclamationCircleFilled size={34} />
-                            <h1 className="text-2xl font-bold">
-                                There are no Subreddits to display!
-                            </h1>
-                            <p>Click the button on the sidebar to add one.</p>
-                        </div>
-                    )}
-                </div>
+                <Deck subRedditList={subRedditList} />
             </div>
         </>
     );
