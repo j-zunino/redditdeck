@@ -6,6 +6,7 @@ import {
     IconExclamationCircleFilled,
     IconPlus,
 } from '@tabler/icons-react';
+import { Button, Deck, Modal, Sidebar } from './components';
 
 function App() {
     const [subRedditList, setSubRedditList] = useState(['all']);
@@ -53,14 +54,14 @@ function App() {
                         className="mx-10 mb-4 rounded-full bg-gray-100 p-2 px-4 dark:bg-zinc-700"
                     />
                     <div className="flex justify-center">
-                        <ButtonIcon
+                        <Button
                             icon={<IconCancel size={20} />}
                             labelEnd="Cancel"
                             ariaLabel="Cancel"
                             onClick={() => setIsOpen(false)}
                             className="mr-2 bg-gray-100 pr-4 text-gray-500 hover:bg-gray-200 dark:bg-zinc-700 dark:hover:bg-zinc-800"
                         />
-                        <ButtonIcon
+                        <Button
                             icon={<IconPlus size={20} />}
                             type="submit"
                             labelEnd="Add"

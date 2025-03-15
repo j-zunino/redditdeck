@@ -1,5 +1,5 @@
 import { IconDotsVertical, IconRefresh, IconTrash } from '@tabler/icons-react';
-import { ButtonIcon, Dropdown } from '../../components';
+import { Button, Dropdown } from '../../components';
 
 interface Props {
     subreddit: string;
@@ -12,14 +12,14 @@ export const SubRedditHeader = ({ subreddit, onRefresh }: Props) => {
             <h2 className="font-bold">{subreddit}</h2>
 
             <Dropdown icon={<IconDotsVertical />}>
-                <ButtonIcon
+                <Button
                     icon={<IconRefresh size={20} />}
                     onClick={onRefresh}
                     labelEnd="Refresh"
                     ariaLabel="Refresh subreddit"
                     className="min-w-full hover:bg-gray-100 dark:hover:bg-zinc-800"
                 />
-                <ButtonIcon
+                <Button
                     icon={<IconTrash size={20} />}
                     labelEnd="Remove"
                     ariaLabel="Remove subreddit"

@@ -10,7 +10,7 @@ interface Props {
     onClick?: () => void;
 }
 
-export const ButtonIcon = ({
+export const Button = ({
     labelStart,
     labelEnd,
     icon,

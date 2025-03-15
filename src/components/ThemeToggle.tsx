@@ -1,6 +1,6 @@
 import { IconMoonStars } from '@tabler/icons-react';
 import { useTheme } from '../hooks';
-import { ButtonIcon } from './ButtonIcon';
+import { Button } from './Button';
 
 export default function ThemeToggle() {
     const { theme, setTheme } = useTheme();
@@ -11,7 +11,7 @@ export default function ThemeToggle() {
 
     return (
         <div>
-            <ButtonIcon
+            <Button
                 icon={<IconMoonStars />}
                 onClick={toggleTheme}
                 ariaLabel="Toggle Dark Mode"

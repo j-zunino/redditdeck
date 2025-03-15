@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import { useClickOutside } from '../../hooks/useClickOutside';
-import { ButtonIcon } from '../ButtonIcon';
+import { Button } from '../Button';
 import DropdownContent from './DropdownContent';
 
 interface Props {
@@ -19,11 +19,7 @@ export function Dropdown({ icon, children }: Props) {
 
     return (
         <div className="relative flex flex-col items-end" ref={elementRef}>
-            <ButtonIcon
-                icon={icon}
-                ariaLabel="Dropdown"
-                onClick={toggleDropdown}
-            />
+            <Button icon={icon} ariaLabel="Dropdown" onClick={toggleDropdown} />
             {isOpen ? <DropdownContent>{children}</DropdownContent> : null}
         </div>
     );
