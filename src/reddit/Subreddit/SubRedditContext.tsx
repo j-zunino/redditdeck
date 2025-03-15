@@ -24,7 +24,7 @@ interface RedditResponse {
 }
 
 interface SubRedditContextProps {
-    data: RedditResponse | undefined;
+    data: RedditResponse | null;
     loading: boolean;
     error: Error | null;
     handleRefresh: () => void;
