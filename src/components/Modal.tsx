@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const Modal = ({ children, isOpen, onClose }: Props) => {
-    const { elementRef } = useClickOutside(onClose);
+    const { elementRef } = useClickOutside<HTMLDialogElement>(onClose);
 
     if (!isOpen) return null;
 

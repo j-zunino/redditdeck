@@ -15,7 +15,9 @@ export function Dropdown({ icon, children }: Props) {
         setIsOpen((open) => !open);
     };
 
-    const { elementRef } = useClickOutside(() => setIsOpen(false));
+    const { elementRef } = useClickOutside<HTMLDivElement>(() =>
+        setIsOpen(false),
+    );
 
     return (
         <div className="relative flex flex-col items-end" ref={elementRef}>

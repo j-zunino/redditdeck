@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 
-export const useClickOutside = (onClose: () => void) => {
-    const elementRef = useRef<HTMLDivElement>(null);
+export const useClickOutside = <T extends HTMLElement>(onClose: () => void) => {
+    const elementRef = useRef<T>(null);
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
