@@ -36,7 +36,12 @@ function App() {
                         Enter the name of the subreddit to add.
                     </p>
                 </div>
-                <form onSubmit={handleSubmit} className="flex flex-col">
+
+                <form
+                    method="dialog"
+                    onSubmit={handleSubmit}
+                    className="flex flex-col"
+                >
                     <input
                         required
                         name="subRedditInput"
