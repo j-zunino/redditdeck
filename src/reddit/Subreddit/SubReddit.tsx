@@ -21,7 +21,7 @@ export const SubReddit = ({ subreddit }: Props) => {
     }
 
     if (error) {
-        return <ErrorMessage urgency="info" errorMessage={error.message} />;
+        return <ErrorMessage urgency="critical" errorMessage={error.message} />;
     }
 
     return (
