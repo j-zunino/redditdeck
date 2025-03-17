@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="./public/favicon.svg" width="180" alt="redditdeck logo">
+</p>
+
 # RedditDeck
 
 A web application built with React, TypeScript, and Vite for browsing Reddit.
