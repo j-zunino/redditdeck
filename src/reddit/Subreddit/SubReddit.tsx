@@ -35,6 +35,7 @@ export const SubReddit = ({ subreddit }: Props) => {
                     <article className="group m-2 flex items-center rounded-xl p-2 hover:bg-gray-100 dark:hover:bg-zinc-900">
                         <Thumbnail
                             thumbnail={post.data.thumbnail}
+                            preview={post.data.preview}
                             is_video={post.data.is_video}
                             alt={post.data.title}
                         />

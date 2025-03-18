@@ -10,25 +10,36 @@ interface Props {
     alt: string;
     thumbnail: string;
     is_video: boolean;
+    preview: { enabled: boolean; images: { source: { url: string } }[] } | null;
 }
 
-let icon: ReactNode;
+export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
+    let imageUrl = thumbnail;
+    let icon: ReactNode;
 
-export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
+    if (preview?.enabled && preview?.images?.[0]?.source?.url) {
+        imageUrl = preview.images[0].source.url.replace('&amp;', '&');
+    }
+
+    switch (thumbnail) {
+        case 'image':
+            icon = <IconPhoto />;
+            break;
+        case 'nsfw':
+            icon = <IconXxx />;
+            break;
+        case 'self':
+        case 'default':
+        case '':
+            icon = <IconArticle />;
+            break;
+
+        default:
+            break;
+    }
+
     if (is_video) {
         icon = <IconVideo />;
-    }
-
-    if (thumbnail === 'image') {
-        icon = <IconPhoto />;
-    }
-
-    if (thumbnail === 'nsfw') {
-        icon = <IconXxx />;
-    }
-
-    if (thumbnail === 'self' || thumbnail === 'default' || thumbnail === '') {
-        icon = <IconArticle />;
     }
 
     if (icon) {
@@ -41,7 +52,7 @@ export const Thumbnail = ({ alt, thumbnail, is_video }: Props) => {
 
     return (
         <img
-            src={thumbnail}
+            src={imageUrl}
             alt={alt}
             className="min-w-24 mr-4 hidden h-20 w-24 rounded-md object-cover lg:flex"
             loading="lazy"

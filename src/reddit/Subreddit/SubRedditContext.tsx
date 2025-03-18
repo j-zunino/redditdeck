@@ -14,6 +14,10 @@ interface RedditPost {
         thumbnail_width: number;
         is_video: boolean;
         permalink: string;
+        preview: {
+            enabled: boolean;
+            images: { source: { url: string } }[];
+        } | null;
     };
 }
 
