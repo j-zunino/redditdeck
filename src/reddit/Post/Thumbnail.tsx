@@ -44,7 +44,7 @@ export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
 
     if (icon) {
         return (
-            <div className="min-w-24 border-1 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-black dark:text-zinc-700 lg:flex">
+            <div className="border-1 min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-black dark:text-zinc-700 sm:flex">
                 {icon}
             </div>
         );
@@ -54,7 +54,7 @@ export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
         <img
             src={imageUrl}
             alt={alt}
-            className="min-w-24 mr-4 hidden h-20 w-24 rounded-md object-cover lg:flex"
+            className="border-1 max-w-24 mr-4 hidden h-20 w-24 rounded-md border-gray-200 object-cover dark:border-zinc-800 sm:flex"
             loading="lazy"
         />
     );
