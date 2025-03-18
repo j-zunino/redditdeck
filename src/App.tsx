@@ -64,7 +64,7 @@ function App() {
                             type="submit"
                             labelEnd="Add"
                             ariaLabel="Add SubReddit"
-                            className="bg-orange-600 pr-4 hover:bg-orange-700"
+                            className="bg-orange-600 pr-4 text-white hover:bg-orange-700"
                         />
                     </div>
                 </form>
