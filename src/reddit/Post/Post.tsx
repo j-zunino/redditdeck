@@ -9,7 +9,7 @@ export const Post = ({ children }: Props) => {
         <>
             {children}
 
-            <div className="border-b-1 mx-2 border-gray-200 dark:border-zinc-700"></div>
+            <div className="border-b-1 mx-2 border-gray-200 dark:border-zinc-800"></div>
         </>
     );
 };
