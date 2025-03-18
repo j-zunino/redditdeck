@@ -44,7 +44,7 @@ export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
 
     if (icon) {
         return (
-            <div className="border-1 min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-black dark:text-zinc-700 sm:flex">
+            <div className="border-1 min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-700 sm:flex">
                 {icon}
             </div>
         );
