@@ -57,7 +57,7 @@ function App() {
                             labelEnd="Cancel"
                             ariaLabel="Cancel"
                             onClick={() => setIsOpen(false)}
-                            className="mr-2 bg-gray-100 pr-4 text-gray-500 hover:bg-gray-200 dark:bg-zinc-700 dark:hover:bg-zinc-800"
+                            className="mr-2 pr-4 text-gray-600 hover:bg-gray-200 dark:text-zinc-400 dark:hover:bg-zinc-800"
                         />
                         <Button
                             icon={<IconPlus size={20} />}
