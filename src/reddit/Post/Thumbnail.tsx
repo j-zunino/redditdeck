@@ -4,7 +4,7 @@ import {
     IconVideo,
     IconXxx,
 } from '@tabler/icons-react';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface Props {
     alt: string;
@@ -14,6 +14,7 @@ interface Props {
 }
 
 export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
+    const [loaded, setLoaded] = useState(false);
     let imageUrl = thumbnail;
     let icon: ReactNode;
 
@@ -42,20 +43,19 @@ export const Thumbnail = ({ alt, thumbnail, preview, is_video }: Props) => {
         icon = <IconVideo />;
     }
 
-    if (icon) {
-        return (
-            <div className="border-1 min-w-24 mr-4 hidden h-20 w-24 items-center justify-center rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-700 sm:flex">
-                {icon}
-            </div>
-        );
-    }
-
     return (
-        <img
-            src={imageUrl}
-            alt={alt}
-            className="border-1 max-w-24 mr-4 hidden h-20 w-24 rounded-md border-gray-200 object-cover dark:border-zinc-800 sm:flex"
-            loading="lazy"
-        />
+        <div className="border-1 min-w-24 mr-4 hidden h-20 w-24 items-center justify-center overflow-clip rounded-md border-gray-200 bg-gray-100 text-gray-500 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-700 sm:flex">
+            {icon ? (
+                icon
+            ) : (
+                <img
+                    src={imageUrl}
+                    alt={alt}
+                    className={`${loaded ? 'opacity-100' : 'opacity-0'} h-full w-full object-cover transition-opacity`}
+                    loading="lazy"
+                    onLoad={() => setLoaded(true)}
+                />
+            )}
+        </div>
     );
 };
