@@ -17,7 +17,7 @@ export const SubReddit = ({ subreddit }: Props) => {
     const { data, loading, error, handleRefresh } = useSubRedditContext();
 
     if (loading) {
-        return <SubRedditSkeleton />;
+        return <SubRedditSkeleton quantity={10} />;
     }
 
     if (error) {

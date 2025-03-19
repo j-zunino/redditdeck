@@ -1,4 +1,11 @@
-export const SubRedditSkeleton = () => {
+interface Props {
+    quantity: number;
+}
+export const SubRedditSkeleton = ({ quantity = 1 }: Props) => {
+    if (quantity <= 0) {
+        quantity = 1;
+    }
+
     return (
         <section className="border-r-1 no-scrollbar h-screen flex-1 overflow-y-auto border-gray-200 dark:border-zinc-800 dark:bg-black">
             <div className="animate-pulse">
@@ -7,7 +14,7 @@ export const SubRedditSkeleton = () => {
                     <div className="w-50 h-7 rounded-md bg-gray-200 dark:bg-zinc-800"></div>
                 </div>
 
-                {Array.from({ length: 10 }, (_, index) => (
+                {Array.from({ length: quantity }, (_, index) => (
                     // bg
                     <section
                         key={index}
