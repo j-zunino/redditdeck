@@ -7,6 +7,7 @@ interface Props {
     type?: 'button' | 'submit' | 'reset';
     ariaLabel: string;
     className?: string;
+    disabled?: boolean;
     onClick?: () => void;
 }
 
@@ -17,16 +18,17 @@ export const Button = ({
     type = 'button',
     ariaLabel,
     className,
+    disabled = false,
     onClick,
 }: Props) => {
     return (
-        // TODO: Add disabled styles
         <button
-            className={`flex items-center justify-center gap-2 rounded-full p-2 text-sm ${className ? className : 'hover:bg-gray-100 dark:hover:bg-zinc-800'} `}
+            className={`flex items-center justify-center gap-2 rounded-full p-2 text-sm  ${className ? className : 'hover:bg-gray-100 dark:hover:bg-zinc-800'} ${disabled ? 'cursor-not-allowed opacity-20' : null}`}
             onClick={onClick}
             type={type}
             role={type}
             aria-label={ariaLabel}
+            disabled={disabled}
         >
             {labelStart}
             {icon}
