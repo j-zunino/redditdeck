@@ -24,12 +24,12 @@ export const Deck = ({ subRedditList }: Props) => {
     }
 
     return (
-        <div className="flex flex-1">
+        <main className="flex flex-1">
             {subRedditList.map((subReddit) => (
                 <SubRedditContextProvider key={subReddit} subreddit={subReddit}>
                     <SubReddit key={subReddit} subreddit={subReddit} />
                 </SubRedditContextProvider>
             ))}
-        </div>
+        </main>
     );
 };
