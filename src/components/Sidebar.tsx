@@ -1,6 +1,6 @@
 import { IconBrandGithub, IconPlus } from '@tabler/icons-react';
-import ThemeToggle from './ThemeToggle';
 import { Button } from './Button';
+import ThemeToggle from './ThemeToggle';
 
 interface Props {
     parentMethod?: () => void;

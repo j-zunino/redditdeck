@@ -1,6 +1,7 @@
 interface Props {
     quantity: number;
 }
+
 export const SubRedditSkeleton = ({ quantity = 1 }: Props) => {
     if (quantity <= 0) {
         quantity = 1;
