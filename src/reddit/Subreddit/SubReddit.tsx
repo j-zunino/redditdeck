@@ -4,8 +4,7 @@ import {
     IconExternalLink,
 } from '@tabler/icons-react';
 import { ErrorMessage } from '../../components';
-import { Post } from '../Post';
-import { Thumbnail } from '../Post/Thumbnail';
+import { Post, Thumbnail } from '../Post';
 import { SubRedditHeader, SubRedditSkeleton } from '../Subreddit';
 import { useSubRedditContext } from './SubRedditContext';
 
