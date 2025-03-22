@@ -24,6 +24,7 @@ export const SubRedditHeader = ({ subreddit, onRefresh }: Props) => {
                     labelEnd="Remove"
                     ariaLabel="Remove subreddit"
                     className="min-w-full font-bold text-red-500 hover:bg-red-500/20"
+                    disabled={true}
                 />
             </Dropdown>
         </div>
