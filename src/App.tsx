@@ -20,7 +20,9 @@ function App() {
         setIsOpen(false);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+
         if (inputValue) {
             handleAddSubreddit(inputValue.trim().toLowerCase());
         }
