@@ -1,1 +1,52 @@
 @import 'tailwindcss';
+/* Backgrounds
+#0E1113 Main
+#181C1F Hover - Modal
+
+Buttons
+#D93900 Accent
+#AE2C00 Accent hover
+#FFFFFF Foreground
+
+Post
+#26282A Border (1px)
+#2A3236 Button backgound
+#8BA2AD Foreground seen - Time ofpost
+#B7CAD4 Subreddit name (bold) - Post body
+#EEF1F3 Post title (bold)
+#F2F2F2 Spoiler
+#648EFC Link
+#90A9FD Link hover
+#CF5FFF Link visited (hover -> underline) */
+
+@theme {
+    --color-global-black: #000000;
+    --color-global-bg-main: #0e1113;
+    --color-global-bg-hover: #181c1f;
+    --color-global-border: #26282a;
+    --color-global-gray: #2a3236;
+    --color-global-gray-light: #8ba2ad;
+    --color-global-gray-lighter: #b7cad4;
+    --color-global-offwhite: #f2f2f2;
+    --color-global-offwhite-hover: #eef1f3;
+    --color-global-white: #ffffff;
+    --color-global-orange: #d93900;
+    --color-global-orange-hover: #ae2c00;
+    --color-global-orange-active: #ba4b26;
+    --color-global-purple: #cf5fff;
+    --color-global-blue: #648efc;
+    --color-global-blue-hover: #90a9fd;
+
+    --color-btn-fg: var(--color-white);
+    --color-btn-bg: var(--color-global-orange);
+    --color-btn-bg-hover: var(--color-global-orange-hover);
+    --color-btn-bg-active: var(--color-global-orange-active);
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+        background-color: var(--color-global-bg-main);
+        color: var(--color-white);
+    }
+}
