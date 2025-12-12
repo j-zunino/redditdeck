@@ -1,4 +1,3 @@
-// Top-level response
 export interface ApiResponse {
     isPending: boolean;
     isSuccess: boolean;
