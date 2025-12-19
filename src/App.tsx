@@ -14,13 +14,13 @@ function App() {
     console.log(posts);
 
     return (
-        <>
-            <div className="m-10 border-x-2 border-global-border">
+        <div className="flex max-h-screen overflow-x-auto p-5">
+            <div className="overflow-y-auto border border-global-border">
                 {posts.map((post: Post) => (
                     <RedditPost key={post.id} post={post} />
                 ))}
             </div>
-        </>
+        </div>
     );
 }
 
