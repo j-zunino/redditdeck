@@ -5,19 +5,19 @@ interface Props {
 }
 
 export const RedditPost = ({ post }: Props) => {
-    console.log(post);
-
     return (
         <a
             href={`https://www.reddit.com${post.permalink}`}
             target="_blank"
-            className="flex border-y border-global-border p-2 hover:bg-global-bg-hover"
+            className="flex gap-2 border-y border-global-border p-2 hover:bg-global-bg-hover"
         >
-            <img
-                className="bg-black object-contain"
-                src={post.thumbnail}
-                alt=""
-            />
+            {post.preview?.enabled && (
+                <img
+                    className="bg-black object-contain"
+                    src={post.thumbnail}
+                    alt=""
+                />
+            )}
 
             <article>
                 <p>r/{post.subreddit}</p>
