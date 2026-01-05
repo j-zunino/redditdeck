@@ -10,7 +10,7 @@ export const Modal = ({ children, modalRef }: Props) => {
     return (
         <dialog
             ref={modalRef}
-            className="h-full max-h-none w-full max-w-none bg-transparent backdrop-brightness-50"
+            className="h-full max-h-none w-full max-w-none bg-transparent text-white backdrop-brightness-50"
         >
             <div className="flex h-full w-full flex-col items-center justify-center">
                 <div className="flex flex-col items-end">
