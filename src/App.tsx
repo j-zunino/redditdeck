@@ -1,44 +1,33 @@
-import { RedditPost } from './components/specific';
-import { useSubreddit } from './hooks';
-import { useInfiniteScroll } from './hooks/useInfiniteScroll';
-import type { ListingResponse, Post } from './types/Subreddit';
+import { useRef } from 'react';
+import { Modal } from './components/shared/Modal';
+import { handleOpen } from './utils/modal.utils';
 
 function App() {
-    const {
-        data,
-        fetchNextPage,
-        hasNextPage,
-        isFetchingNextPage,
-        isLoading,
-        isError,
-    } = useSubreddit();
-
-    const loadMoreRef = useInfiniteScroll(() => {
-        if (hasNextPage && !isFetchingNextPage) {
-            fetchNextPage();
-        }
-    });
-
-    if (isLoading) return <div>Loading...</div>;
-    if (isError || !data) return <div>Error loading subreddit</div>;
-
-    const posts =
-        data.pages.flatMap((page) =>
-            page.data.children.map((c: ListingResponse) => c.data),
-        ) ?? [];
+    const addSubredditRef = useRef<HTMLDialogElement>(null);
 
     return (
-        <div className="flex max-h-screen overflow-x-auto p-5">
-            <div className="overflow-y-auto border border-global-border">
-                {posts.map((post: Post) => (
-                    <RedditPost key={post.id} post={post} />
-                ))}
-
-                <div ref={loadMoreRef} className="p-4 text-center">
-                    {isFetchingNextPage && 'Loading more...'}
-                </div>
+        <>
+            <div className="flex">
+                <button
+                    onClick={(e) => handleOpen(e, addSubredditRef)}
+                    className="bg-global-orange text-white hover:bg-global-orange-hover active:bg-global-orange-active"
+                >
+                    Open
+                </button>
             </div>
-        </div>
+
+            <Modal modalRef={addSubredditRef}>
+                <form className="flex max-w-100 flex-col gap-2 bg-global-bg-hover p-4">
+                    <input
+                        type="text"
+                        className="border border-global-border"
+                    />
+                    <button className="bg-global-orange text-white hover:bg-global-orange-hover active:bg-global-orange-active">
+                        Add
+                    </button>
+                </form>
+            </Modal>
+        </>
     );
 }
 
