@@ -6,9 +6,18 @@ function App() {
     const [subreddit, setSubreddit] = useState('');
     const addSubredditRef = useRef<HTMLDialogElement>(null);
 
-    const handleSubmit = (e: FormEvent) => {
+    const addSub = (e: FormEvent) => {
         e.preventDefault();
-        console.log(subreddit);
+        if (!subreddit) return;
+
+        const url = new URL(window.location.href);
+
+        const normalized = subreddit.toLowerCase();
+        const subs = url.searchParams.getAll('sub').map((s) => s.toLowerCase());
+        if (!subs.includes(normalized)) {
+            url.searchParams.append('sub', normalized);
+            window.history.pushState({}, '', url.toString());
+        }
     };
 
     return (
@@ -24,7 +33,7 @@ function App() {
 
             <Modal modalRef={addSubredditRef}>
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={addSub}
                     className="flex max-w-100 flex-col gap-2 bg-global-bg-hover p-4"
                 >
                     <label className="flex flex-col">
