@@ -1,28 +1,15 @@
-import { useRef, useState, type FormEvent } from 'react';
+import { useRef, useState } from 'react';
 import { Modal } from './components/shared/Modal';
 import { handleOpen } from './utils/modal.utils';
+import { addSub } from './utils/reddit.utils';
 
 function App() {
     const [subreddit, setSubreddit] = useState('');
     const addSubredditRef = useRef<HTMLDialogElement>(null);
 
-    const addSub = (e: FormEvent) => {
-        e.preventDefault();
-        if (!subreddit) return;
-
-        const url = new URL(window.location.href);
-
-        const normalized = subreddit.toLowerCase();
-        const subs = url.searchParams.getAll('sub').map((s) => s.toLowerCase());
-        if (!subs.includes(normalized)) {
-            url.searchParams.append('sub', normalized);
-            window.history.pushState({}, '', url.toString());
-        }
-    };
-
     return (
         <>
-            <div className="flex text-white">
+            <div className="text-white">
                 <button
                     onClick={(e) => handleOpen(e, addSubredditRef)}
                     className="bg-global-orange hover:bg-global-orange-hover active:bg-global-orange-active"
@@ -33,7 +20,7 @@ function App() {
 
             <Modal modalRef={addSubredditRef}>
                 <form
-                    onSubmit={addSub}
+                    onSubmit={(e) => addSub(e, subreddit)}
                     className="flex max-w-100 flex-col gap-2 bg-global-bg-hover p-4"
                 >
                     <label className="flex flex-col">
