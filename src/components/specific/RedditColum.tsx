@@ -18,14 +18,14 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
         isError,
     } = useSubreddit(subreddit);
 
-    if (isLoading) return <div>Loading...</div>;
-    if (isError || !data) return <div>Error loading subreddit</div>;
-
     const loadMoreRef = useInfiniteScroll(() => {
         if (hasNextPage && !isFetchingNextPage) {
             fetchNextPage();
         }
     });
+
+    if (isLoading) return <div>Loading...</div>;
+    if (isError || !data) return <div>Error loading subreddit</div>;
 
     const posts =
         data.pages.flatMap((page) =>
