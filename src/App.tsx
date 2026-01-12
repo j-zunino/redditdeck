@@ -2,10 +2,14 @@ import { useRef, useState } from 'react';
 import { Modal } from './components/shared/Modal';
 import { handleOpen } from './utils/modal.utils';
 import { addSub } from './utils/reddit.utils';
+import { RedditColum } from './components/specific';
 
 function App() {
     const [subreddit, setSubreddit] = useState('');
     const addSubredditRef = useRef<HTMLDialogElement>(null);
+
+    const params = new URLSearchParams(window.location.search);
+    const cols = params.getAll('sub');
 
     return (
         <>
@@ -16,6 +20,12 @@ function App() {
                 >
                     Open
                 </button>
+
+                <div className="flex justify-between">
+                    {cols.map((col) => (
+                        <RedditColum key={col} subreddit={col} />
+                    ))}
+                </div>
             </div>
 
             <Modal modalRef={addSubredditRef}>
