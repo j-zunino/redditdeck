@@ -13,3 +13,16 @@ export const addSub = (e: FormEvent, subreddit: string) => {
         window.history.pushState({}, '', url.toString());
     }
 };
+
+export const removeSub = (subreddit: string) => {
+    const url = new URL(window.location.href);
+    const subs = url.searchParams.getAll('sub').map((s) => s.toLowerCase());
+
+    url.searchParams.delete('sub');
+
+    subs.filter((s) => s !== subreddit).forEach((s) =>
+        url.searchParams.append('sub', s),
+    );
+
+    window.history.pushState({}, '', url.toString());
+};

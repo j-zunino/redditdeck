@@ -1,6 +1,7 @@
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
+import { removeSub } from '../../utils/reddit.utils';
 import { RedditPost } from './RedditPost';
 
 interface Props {
@@ -33,7 +34,13 @@ export const RedditColum = ({ subreddit }: Props) => {
 
     return (
         <div className="h-full max-h-screen w-full overflow-auto border border-global-border">
-            <h3 className="bg-global-bg-hover">{subreddit}</h3>
+            <div className="flex justify-between">
+                <h3 className="w-full bg-global-bg-hover text-center">
+                    {subreddit}
+                </h3>
+
+                <button onClick={() => removeSub(subreddit)}>Remove</button>
+            </div>
 
             <div className="overflow-y-auto">
                 {posts.map((post: Post) => (
