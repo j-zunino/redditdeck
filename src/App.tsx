@@ -1,15 +1,17 @@
 import { useRef, useState } from 'react';
 import { Modal } from './components/shared/Modal';
-import { handleOpen } from './utils/modal.utils';
-import { addSub } from './utils/reddit.utils';
 import { RedditColum } from './components/specific';
+import { useSubreddits } from './hooks/useSubreddits';
+import { handleClose, handleOpen } from './utils/modal.utils';
 
+// TODO:
+// - Improve modal input performance
+// - Create more types?
+// - Add back/foward navigation on useSubreddits hook?
 function App() {
-    const [subreddit, setSubreddit] = useState('');
+    const { subreddits, addSubreddit, removeSubreddit } = useSubreddits();
+    const [subredditInput, setSubredditInput] = useState('');
     const addSubredditRef = useRef<HTMLDialogElement>(null);
-
-    const params = new URLSearchParams(window.location.search);
-    const cols = params.getAll('sub');
 
     return (
         <>
@@ -22,15 +24,23 @@ function App() {
                 </button>
 
                 <div className="flex justify-between">
-                    {cols.map((col) => (
-                        <RedditColum key={col} subreddit={col} />
+                    {subreddits.map((sub) => (
+                        <RedditColum
+                            key={sub}
+                            subreddit={sub}
+                            onRemove={removeSubreddit}
+                        />
                     ))}
                 </div>
             </div>
 
             <Modal modalRef={addSubredditRef}>
                 <form
-                    onSubmit={(e) => addSub(e, subreddit)}
+                    onSubmit={(e) => {
+                        addSubreddit(e, subredditInput);
+                        handleClose(e, addSubredditRef);
+                        setSubredditInput('');
+                    }}
                     className="flex max-w-100 flex-col gap-2 bg-global-bg-hover p-4"
                 >
                     <label className="flex flex-col">
@@ -40,8 +50,8 @@ function App() {
                             placeholder="reactjs"
                             name="addSubredditInput"
                             required={true}
-                            value={subreddit}
-                            onChange={(e) => setSubreddit(e.target.value)}
+                            value={subredditInput}
+                            onChange={(e) => setSubredditInput(e.target.value)}
                             className="border border-global-border outline-0 focus:border-global-orange"
                         />
                     </label>

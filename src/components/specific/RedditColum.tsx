@@ -1,14 +1,14 @@
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
-import { removeSub } from '../../utils/reddit.utils';
 import { RedditPost } from './RedditPost';
 
 interface Props {
     subreddit: string;
+    onRemove: (sub: string) => void;
 }
 
-export const RedditColum = ({ subreddit }: Props) => {
+export const RedditColum = ({ subreddit, onRemove }: Props) => {
     const {
         data,
         fetchNextPage,
@@ -18,14 +18,14 @@ export const RedditColum = ({ subreddit }: Props) => {
         isError,
     } = useSubreddit(subreddit);
 
+    if (isLoading) return <div>Loading...</div>;
+    if (isError || !data) return <div>Error loading subreddit</div>;
+
     const loadMoreRef = useInfiniteScroll(() => {
         if (hasNextPage && !isFetchingNextPage) {
             fetchNextPage();
         }
     });
-
-    if (isLoading) return <div>Loading...</div>;
-    if (isError || !data) return <div>Error loading subreddit</div>;
 
     const posts =
         data.pages.flatMap((page) =>
@@ -39,7 +39,7 @@ export const RedditColum = ({ subreddit }: Props) => {
                     {subreddit}
                 </h3>
 
-                <button onClick={() => removeSub(subreddit)}>Remove</button>
+                <button onClick={() => onRemove(subreddit)}>Remove</button>
             </div>
 
             <div className="overflow-y-auto">
