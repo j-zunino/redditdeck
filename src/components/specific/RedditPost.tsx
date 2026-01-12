@@ -6,11 +6,7 @@ interface Props {
 
 export const RedditPost = ({ post }: Props) => {
     return (
-        <a
-            href={`https://www.reddit.com${post.permalink}`}
-            target="_blank"
-            className="flex gap-2 border-y border-global-border p-2 hover:bg-global-bg-hover"
-        >
+        <div className="flex gap-2 border-y border-global-border p-2 hover:bg-global-bg-hover">
             {post.preview?.enabled && (
                 <img
                     className="bg-black object-contain"
@@ -21,7 +17,15 @@ export const RedditPost = ({ post }: Props) => {
 
             <article>
                 <p>r/{post.subreddit}</p>
-                <h3 className="font-bold">{post.title}</h3>
+                <h2>
+                    <a
+                        target="_blank"
+                        href={`https://www.reddit.com${post.permalink}`}
+                        className="font-bold hover:underline"
+                    >
+                        {post.title}
+                    </a>
+                </h2>
                 <span
                     style={{
                         backgroundColor: post.link_flair_background_color,
@@ -38,6 +42,6 @@ export const RedditPost = ({ post }: Props) => {
                     <span>{post.num_comments}</span>
                 </div>
             </article>
-        </a>
+        </div>
     );
 };
