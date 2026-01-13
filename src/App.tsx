@@ -35,30 +35,32 @@ function App() {
             </div>
 
             <Modal modalRef={addSubredditRef}>
+                <h2 className="text-center text-xl font-bold">Add subreddit</h2>
+
                 <form
                     onSubmit={(e) => {
                         addSubreddit(e, subredditInput);
                         handleClose(e, addSubredditRef);
                         setSubredditInput('');
                     }}
-                    className="flex max-w-100 flex-col gap-2 bg-global-bg-hover p-4"
+                    className="flex max-w-100 flex-col gap-2"
                 >
-                    <label className="flex flex-col">
-                        Subreddit name:
+                    <label className="flex flex-col border bg-surface-400 p-2">
                         <input
                             type="text"
-                            placeholder="reactjs"
+                            placeholder="Enter subreddit name..."
                             name="addSubredditInput"
+                            autoComplete="off"
                             required={true}
                             value={subredditInput}
                             onChange={(e) => setSubredditInput(e.target.value)}
-                            className="border border-global-border outline-0 focus:border-global-orange"
+                            className="outline-0"
                         />
                     </label>
 
                     <button
                         type="submit"
-                        className="bg-global-orange hover:bg-global-orange-hover active:bg-global-orange-active"
+                        className="bg-brand-main p-2 hover:bg-brand-hover active:bg-accent-orange"
                     >
                         Add
                     </button>
