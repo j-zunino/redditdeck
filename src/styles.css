@@ -57,8 +57,12 @@
 
 @layer base {
     body {
+        background-color: var(--color-surface-50);
+    }
+
+    * {
         font-family: var(--font-sans);
-        background-color: var(--color-global-bg-main);
         color: var(--color-white);
+        border-color: var(--color-neutral-700);
     }
 }
