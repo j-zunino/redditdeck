@@ -10,7 +10,7 @@ export const RedditPost = ({ post }: Props) => {
         <div className="flex gap-2 border-y border-global-border p-2 hover:bg-global-bg-hover">
             {post.preview?.enabled && (
                 <img
-                    className="bg-black object-contain"
+                    className="aspect-square w-30 bg-black object-cover"
                     src={post.thumbnail}
                     alt=""
                 />
