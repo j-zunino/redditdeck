@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Modal } from './components/shared/Modal';
 import { RedditColum } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
-import { handleClose, handleOpen } from './utils/modal.utils';
+import { handleOpen, handleClose } from './utils';
 
 // TODO:
 // - Improve modal input performance

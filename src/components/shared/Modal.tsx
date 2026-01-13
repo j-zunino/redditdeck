@@ -1,5 +1,5 @@
 import type { ReactNode, RefObject } from 'react';
-import { handleClose } from '../../utils/modal.utils';
+import { handleClose } from '../../utils';
 
 interface Props {
     children: ReactNode;
