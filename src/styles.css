@@ -64,5 +64,8 @@
         font-family: var(--font-sans);
         color: var(--color-white);
         border-color: var(--color-neutral-700);
+
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-global-border) transparent !important;
     }
 }
