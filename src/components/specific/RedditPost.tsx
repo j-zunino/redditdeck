@@ -1,4 +1,5 @@
 import type { Post } from '../../types/Subreddit';
+import { getReadableTextColor } from '../../utils';
 
 interface Props {
     post: Post;
@@ -28,7 +29,9 @@ export const RedditPost = ({ post }: Props) => {
                 <span
                     style={{
                         backgroundColor: post.link_flair_background_color,
-                        color: post.link_flair_text_color || '#FFFFFF',
+                        color: getReadableTextColor(
+                            post.link_flair_background_color || '#000000',
+                        ),
                     }}
                 >
                     {post.link_flair_text}
