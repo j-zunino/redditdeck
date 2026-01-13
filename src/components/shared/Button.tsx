@@ -7,7 +7,9 @@ interface Props {
 }
 
 export const Button = ({ children, variant, onClick }: Props) => {
-    if (variant === 'none') return <button>{children}</button>;
+    if (variant === 'none') {
+        return <button onClick={onClick}>{children}</button>;
+    }
 
     return (
         <button
