@@ -7,43 +7,56 @@ interface Props {
 
 export const RedditPost = ({ post }: Props) => {
     return (
-        <div className="flex gap-2 border-y border-global-border p-2 hover:bg-global-bg-hover">
-            {post.preview?.enabled && (
-                <img
-                    className="aspect-square w-30 bg-black object-cover"
-                    src={post.thumbnail}
-                    alt=""
-                />
-            )}
+        <>
+            <div className="m-2 flex gap-2 p-2 hover:bg-global-bg-hover">
+                {post.preview?.enabled && (
+                    <img
+                        className="aspect-auto max-w-30 bg-black object-cover"
+                        src={post.thumbnail}
+                        alt=""
+                    />
+                )}
 
-            <article>
-                <h2>
-                    <a
-                        target="_blank"
-                        href={`https://www.reddit.com${post.permalink}`}
-                        className="font-bold hover:underline"
-                    >
-                        {post.title}
-                    </a>
-                </h2>
-                <span
-                    style={{
-                        backgroundColor: post.link_flair_background_color,
-                        color: getReadableTextColor(
-                            post.link_flair_background_color || '#000000',
-                        ),
-                    }}
-                >
-                    {post.link_flair_text}
-                </span>
-                <p>u/{post.author}</p>
+                <article>
+                    <p className="text-content-main">
+                        <small className="text-content-main">
+                            u/{post.author}
+                        </small>
+                    </p>
+                    <h2>
+                        <a
+                            target="_blank"
+                            href={`https://www.reddit.com${post.permalink}`}
+                            className="font-bold hover:underline"
+                        >
+                            {post.title}
+                        </a>
+                    </h2>
 
-                <div className="flex w-fit gap-2 bg-global-bg-hover">
-                    <span>{post.ups}</span>
-                    <span>{post.downs}</span>
-                    <span>{post.num_comments}</span>
-                </div>
-            </article>
-        </div>
+                    <div className="flex gap-2">
+                        <div className="flex gap-2">
+                            <span>{post.ups}</span>
+                            <span>{post.num_comments}</span>
+                        </div>
+
+                        <span
+                            style={{
+                                backgroundColor:
+                                    post.link_flair_background_color,
+                                color: getReadableTextColor(
+                                    post.link_flair_background_color ||
+                                        '#000000',
+                                ),
+                            }}
+                            className="px-2"
+                        >
+                            {post.link_flair_text}
+                        </span>
+                    </div>
+                </article>
+            </div>
+
+            <hr className="mx-2 bg-surface-400" />
+        </>
     );
 };
