@@ -25,7 +25,7 @@ function App() {
                     </button>
                 </aside>
 
-                <div className="flex justify-between">
+                <div className="flex justify-between overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
                         <RedditColum
                             key={sub}
@@ -50,9 +50,9 @@ function App() {
                         handleClose(e, addSubredditRef);
                         setSubredditInput('');
                     }}
-                    className="flex max-w-100 flex-col gap-2"
+                    className="flex max-w-100 gap-2"
                 >
-                    <label className="flex flex-col border bg-surface-400 p-2">
+                    <label className="flex w-full flex-col border bg-surface-400 p-2">
                         <input
                             type="text"
                             placeholder="neovim"
