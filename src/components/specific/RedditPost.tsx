@@ -16,7 +16,6 @@ export const RedditPost = ({ post }: Props) => {
             )}
 
             <article>
-                <p>r/{post.subreddit}</p>
                 <h2>
                     <a
                         target="_blank"
