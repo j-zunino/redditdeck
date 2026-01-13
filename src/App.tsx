@@ -35,7 +35,12 @@ function App() {
             </div>
 
             <Modal modalRef={addSubredditRef}>
-                <h2 className="text-center text-xl font-bold">Add subreddit</h2>
+                <div className="text-center">
+                    <h2 className="text-xl font-bold">Add Subreddit</h2>
+                    <p className="text-content-weak">
+                        Subreddit to add to deck.
+                    </p>
+                </div>
 
                 <form
                     onSubmit={(e) => {
@@ -48,7 +53,7 @@ function App() {
                     <label className="flex flex-col border bg-surface-400 p-2">
                         <input
                             type="text"
-                            placeholder="Enter subreddit name..."
+                            placeholder="neovim"
                             name="addSubredditInput"
                             autoComplete="off"
                             required={true}
@@ -60,9 +65,9 @@ function App() {
 
                     <button
                         type="submit"
-                        className="bg-brand-main p-2 hover:bg-brand-hover active:bg-accent-orange"
+                        className="bg-brand-main px-4 hover:bg-brand-hover active:bg-accent-orange"
                     >
-                        Add
+                        +
                     </button>
                 </form>
             </Modal>

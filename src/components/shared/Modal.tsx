@@ -13,7 +13,7 @@ export const Modal = ({ children, modalRef }: Props) => {
             className="h-full max-h-none w-full max-w-none bg-transparent backdrop-brightness-60"
         >
             <div className="flex h-full w-full flex-col items-center justify-center">
-                <div className="flex flex-col space-y-4 bg-surface-300 p-8">
+                <div className="flex flex-col space-y-4 bg-surface-300 p-4">
                     <div className="flex w-full justify-end">
                         <button
                             onClick={(e) => handleClose(e, modalRef)}
