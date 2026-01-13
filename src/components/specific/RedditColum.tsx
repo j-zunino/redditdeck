@@ -33,16 +33,21 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
         ) ?? [];
 
     return (
-        <div className="h-full max-h-screen w-full overflow-auto border border-global-border">
-            <div className="flex justify-between">
-                <h3 className="w-full bg-global-bg-hover text-center">
-                    {subreddit}
+        <div className="border-r">
+            <div className="flex justify-between p-2 border-b">
+                <h3 className="text-md w-full">
+                    r/<strong className="capitalize">{subreddit}</strong>
                 </h3>
 
-                <button onClick={() => onRemove(subreddit)}>Remove</button>
+                <button
+                    onClick={() => onRemove(subreddit)}
+                    className="px-2 hover:bg-surface-300"
+                >
+                    Remove
+                </button>
             </div>
 
-            <div className="overflow-y-auto">
+            <div className="h-full max-h-screen w-full overflow-auto">
                 {posts.map((post: Post) => (
                     <RedditPost key={post.id} post={post} />
                 ))}
