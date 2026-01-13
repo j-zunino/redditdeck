@@ -15,13 +15,15 @@ function App() {
 
     return (
         <>
-            <div className="text-white">
-                <button
-                    onClick={(e) => handleOpen(e, addSubredditRef)}
-                    className="bg-global-orange hover:bg-global-orange-hover active:bg-global-orange-active"
-                >
-                    Open
-                </button>
+            <div className="flex max-h-screen max-w-screen">
+                <aside className="h-screen border-r p-2">
+                    <button
+                        onClick={(e) => handleOpen(e, addSubredditRef)}
+                        className="aspect-square px-2 hover:bg-surface-300"
+                    >
+                        +
+                    </button>
+                </aside>
 
                 <div className="flex justify-between">
                     {subreddits.map((sub) => (
