@@ -52,7 +52,7 @@ function App() {
                     </div>
                 </div>
 
-                <div className="flex h-full max-h-screen overflow-x-auto overflow-y-hidden">
+                <div className="flex h-full max-h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
                         <RedditColum
                             key={sub}

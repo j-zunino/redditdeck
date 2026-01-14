@@ -33,7 +33,7 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
         ) ?? [];
 
     return (
-        <div className="flex min-w-[50dvw] flex-col border-r">
+        <div className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140">
             <header className="flex shrink-0 justify-between border-b p-2">
                 <h3 className="text-md w-full">
                     r/<strong className="capitalize">{subreddit}</strong>
@@ -47,7 +47,7 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
                 </button>
             </header>
 
-            <div className="flex-1 overflow-x-hidden overflow-y-auto">
+            <div className="overflow-x-hidden overflow-y-auto">
                 {posts.map((post: Post) => (
                     <RedditPost key={post.id} post={post} />
                 ))}
