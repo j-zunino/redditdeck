@@ -1,4 +1,4 @@
-import { FaTrashCan } from 'react-icons/fa6';
+import { TbTrash } from 'react-icons/tb';
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
@@ -35,16 +35,16 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
 
     return (
         <div className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140">
-            <header className="flex shrink-0 justify-between border-b p-2">
+            <header className="flex shrink-0 items-center justify-between border-b p-2">
                 <h3 className="text-md w-full">
                     r/<strong className="capitalize">{subreddit}</strong>
                 </h3>
 
                 <button
                     onClick={() => onRemove(subreddit)}
-                    className="aspect-square rounded-full px-2 text-content-weak hover:bg-surface-300 hover:text-content-main"
+                    className="aspect-square rounded-full p-1 hover:bg-surface-300 hover:text-content-main"
                 >
-                    <FaTrashCan className="text-inherit" />
+                    <TbTrash size={24} className="text-inherit" />
                 </button>
             </header>
 

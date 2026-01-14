@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
+import { TbBrandGithub, TbPlus } from 'react-icons/tb';
 import { Modal } from './components/shared/Modal';
 import { RedditColum } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 import { handleClose, handleOpen } from './utils';
-import { FaPlus } from 'react-icons/fa6';
 
 // TODO:
 // - Improve modal input performance
@@ -20,35 +20,35 @@ function App() {
                 <aside className="hidden h-screen flex-col justify-between border-r p-2 md:flex">
                     <button
                         onClick={(e) => handleOpen(e, addSubredditRef)}
-                        className="aspect-square px-2 hover:bg-surface-300"
+                        className="aspect-square rounded-full p-1 hover:bg-surface-300"
                     >
-                        +
+                        <TbPlus size={24} />
                     </button>
 
                     <a
                         href="https://github.com/j-zunino/redditdeck"
                         target="_blank"
-                        className="px-2 hover:bg-surface-300"
+                        className="aspect-square rounded-full p-1 hover:bg-surface-300"
                     >
-                        G
+                        <TbBrandGithub size={24} />
                     </a>
                 </aside>
 
                 <div className="fixed bottom-0 mb-2 flex w-full justify-center md:hidden">
-                    <div className="flex justify-between border bg-surface-100 p-2">
+                    <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2">
                         <button
                             onClick={(e) => handleOpen(e, addSubredditRef)}
-                            className="px-4 py-2 hover:bg-surface-300"
+                            className="aspect-square rounded-full p-1 hover:bg-surface-300"
                         >
-                            +
+                            <TbPlus size={24} />
                         </button>
 
                         <a
                             href="https://github.com/j-zunino/redditdeck"
                             target="_blank"
-                            className="px-4 py-2 hover:bg-surface-300"
+                            className="aspect-square rounded-full p-1 hover:bg-surface-300"
                         >
-                            GitHub
+                            <TbBrandGithub size={24} />
                         </a>
                     </div>
                 </div>
@@ -89,15 +89,15 @@ function App() {
                             required={true}
                             value={subredditInput}
                             onChange={(e) => setSubredditInput(e.target.value)}
-                            className="outline-0 h-full px-2"
+                            className="h-full px-2 outline-0"
                         />
                     </label>
 
                     <button
                         type="submit"
-                        className="aspect-square rounded-full bg-brand-main px-2 hover:bg-brand-hover"
+                        className="aspect-square rounded-full bg-brand-main p-1 hover:bg-brand-hover"
                     >
-                        <FaPlus />
+                        <TbPlus size={24} />
                     </button>
                 </form>
             </Modal>

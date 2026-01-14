@@ -1,5 +1,4 @@
-import { FaRegComment } from 'react-icons/fa6';
-import { TbArrowBigUp } from 'react-icons/tb';
+import { TbArrowBigUp, TbMessageCircle } from 'react-icons/tb';
 import type { Post } from '../../types/Subreddit';
 import { getReadableTextColor } from '../../utils';
 
@@ -39,12 +38,12 @@ export const RedditPost = ({ post }: Props) => {
 
                     <div className="flex gap-2 text-content-weak">
                         <div className="flex gap-4 rounded-full bg-surface-400 px-2">
-                            <span className="flex items-center">
-                                <TbArrowBigUp />
+                            <span className="flex items-center gap-1">
+                                <TbArrowBigUp size={20} />
                                 {post.ups}
                             </span>
                             <span className="flex items-center gap-1">
-                                <FaRegComment />
+                                <TbMessageCircle size={20} />
                                 {post.num_comments}
                             </span>
                         </div>
