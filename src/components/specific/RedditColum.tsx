@@ -3,6 +3,7 @@ import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
 import { RedditPost } from './RedditPost';
+import { Loading } from '../shared';
 
 interface Props {
     subreddit: string;
@@ -55,9 +56,9 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
 
                 <div
                     ref={loadMoreRef}
-                    className="mb-6 animate-pulse p-2 text-center"
+                    className="mb-12 animate-pulse py-8 text-center"
                 >
-                    {isFetchingNextPage && 'Loading more...'}
+                    {isFetchingNextPage && <Loading />}
                 </div>
             </div>
         </div>
