@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { TbBrandGithub, TbPlus } from 'react-icons/tb';
+import { Modal } from './components/shared';
 import { RedditColum } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 import { handleClose, handleOpen } from './utils';
-import type { Modal } from './components/shared';
 
 // TODO:
 // - Improve modal input performance
