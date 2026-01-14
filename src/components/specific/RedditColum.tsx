@@ -33,8 +33,8 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
         ) ?? [];
 
     return (
-        <div className="border-r min-w-[50dvw]">
-            <header className="flex justify-between p-2 border-b">
+        <div className="flex min-w-[50dvw] flex-col border-r">
+            <header className="flex shrink-0 justify-between border-b p-2">
                 <h3 className="text-md w-full">
                     r/<strong className="capitalize">{subreddit}</strong>
                 </h3>
@@ -47,12 +47,15 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
                 </button>
             </header>
 
-            <div className="h-full max-h-screen w-full overflow-auto">
+            <div className="flex-1 overflow-x-hidden overflow-y-auto">
                 {posts.map((post: Post) => (
                     <RedditPost key={post.id} post={post} />
                 ))}
 
-                <div ref={loadMoreRef} className="p-4 text-center">
+                <div
+                    ref={loadMoreRef}
+                    className="mb-6 animate-pulse p-2 text-center"
+                >
                     {isFetchingNextPage && 'Loading more...'}
                 </div>
             </div>
