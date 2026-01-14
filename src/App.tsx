@@ -3,6 +3,7 @@ import { Modal } from './components/shared/Modal';
 import { RedditColum } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 import { handleClose, handleOpen } from './utils';
+import { FaPlus } from 'react-icons/fa6';
 
 // TODO:
 // - Improve modal input performance
@@ -79,7 +80,7 @@ function App() {
                     }}
                     className="flex max-w-100 gap-2"
                 >
-                    <label className="flex w-full flex-col border bg-surface-400 p-2">
+                    <label className="flex w-full flex-col rounded-full border bg-surface-400 px-2">
                         <input
                             type="text"
                             placeholder="neovim"
@@ -88,15 +89,15 @@ function App() {
                             required={true}
                             value={subredditInput}
                             onChange={(e) => setSubredditInput(e.target.value)}
-                            className="outline-0"
+                            className="outline-0 h-full px-2"
                         />
                     </label>
 
                     <button
                         type="submit"
-                        className="bg-brand-main px-4 hover:bg-brand-hover active:bg-accent-orange"
+                        className="aspect-square rounded-full bg-brand-main px-2 hover:bg-brand-hover"
                     >
-                        +
+                        <FaPlus />
                     </button>
                 </form>
             </Modal>
