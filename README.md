@@ -1,32 +1,15 @@
-<p align="center">
-    <img src="./public/favicon.svg" width="180" alt="redditdeck logo">
-</p>
+<img src="./public/favicon.svg" width="180" alt="logo">
 
-# RedditDeck
+<h1>RedditDeck</h1>
 
-A web application built with React, TypeScript, and Vite for browsing Reddit.
+TweetDeck-style web app for browsing Reddit.
 
 ## Features
 
 - **Multi-Subreddit View** - Browse multiple subreddits simultaneously.
 - **Dynamic Subreddit Management** - Add and remove subreddits on the fly.
 
-## Technologies Used
-
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
-- [Vite](https://vitejs.dev/) - A build tool that provides a fast and efficient development experience.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly designing custom user interfaces.
-- [Tabler Icons](https://tabler.io/) - A collection of open source high quality SVG icons.
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (>=18)
-- [pnpm](https://pnpm.io/)
-
-### Installation
+## Development
 
 1.  Clone the repository:
 
@@ -40,18 +23,10 @@ A web application built with React, TypeScript, and Vite for browsing Reddit.
     pnpm install
     ```
 
-### Running the Application
+3.  Run dev server:
 
-```bash
-pnpm run dev
-```
+    ```bash
+    pnpm run dev
+    ```
 
-This will start the development server. Open your browser and navigate to `http://localhost:5173` (or the URL provided by Vite) to view the application.
-
-### Building for Production
-
-```bash
-pnpm run build
-```
-
-This will create a production-ready build in the `dist` directory.
+    Then open your browser and navigate to `http://localhost:5173` (or the URL provided by Vite).
