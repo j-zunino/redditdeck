@@ -1,4 +1,4 @@
-import { IoClose } from 'react-icons/io5';
+import { FaTrashCan } from 'react-icons/fa6';
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
@@ -44,7 +44,7 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
                     onClick={() => onRemove(subreddit)}
                     className="aspect-square rounded-full px-2 text-content-weak hover:bg-surface-300 hover:text-content-main"
                 >
-                    <IoClose className="text-inherit" />
+                    <FaTrashCan className="text-inherit" />
                 </button>
             </header>
 
