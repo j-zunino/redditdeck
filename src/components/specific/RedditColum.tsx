@@ -42,7 +42,7 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
 
                 <button
                     onClick={() => onRemove(subreddit)}
-                    className="aspect-square rounded-full p-1 hover:bg-surface-300 hover:text-content-main"
+                    className="aspect-square rounded-full p-1 hover:bg-surface-300"
                 >
                     <TbTrash size={24} className="text-inherit" />
                 </button>
