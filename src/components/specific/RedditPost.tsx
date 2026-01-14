@@ -8,7 +8,7 @@ interface Props {
 export const RedditPost = ({ post }: Props) => {
     return (
         <>
-            <div className="m-2 flex gap-2 p-2 hover:bg-global-bg-hover">
+            <div className="m-2 flex gap-2 p-2 hover:bg-surface-300">
                 {post.preview?.enabled && (
                     <img
                         className="aspect-auto max-w-30 bg-black object-cover"
@@ -27,16 +27,18 @@ export const RedditPost = ({ post }: Props) => {
                         <a
                             target="_blank"
                             href={`https://www.reddit.com${post.permalink}`}
-                            className="font-bold hover:underline"
+                            className="font-bold text-content-strong visited:text-content-main hover:underline"
                         >
                             {post.title}
                         </a>
                     </h2>
 
-                    <div className="flex gap-2">
-                        <div className="flex gap-2">
-                            <span>{post.ups}</span>
-                            <span>{post.num_comments}</span>
+                    <div className="flex gap-2 text-content-weak">
+                        <div className="flex gap-2 text-content-weak">
+                            <span className="text-inherit">{post.ups}</span>
+                            <span className="text-inherit">
+                                {post.num_comments}
+                            </span>
                         </div>
 
                         <span
