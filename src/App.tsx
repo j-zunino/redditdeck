@@ -15,7 +15,7 @@ function App() {
 
     return (
         <>
-            <div className="flex max-h-screen max-w-screen">
+            <div className="flex h-screen">
                 <aside className="h-screen border-r p-2">
                     <button
                         onClick={(e) => handleOpen(e, addSubredditRef)}
@@ -25,7 +25,7 @@ function App() {
                     </button>
                 </aside>
 
-                <div className="flex justify-between overflow-x-auto overflow-y-hidden">
+                <div className="flex w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
                         <RedditColum
                             key={sub}
