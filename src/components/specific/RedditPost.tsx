@@ -1,3 +1,5 @@
+import { FaRegComment } from 'react-icons/fa6';
+import { TbArrowBigUp } from 'react-icons/tb';
 import type { Post } from '../../types/Subreddit';
 import { getReadableTextColor } from '../../utils';
 
@@ -8,35 +10,41 @@ interface Props {
 export const RedditPost = ({ post }: Props) => {
     return (
         <>
-            <div className="m-2 flex gap-2 p-2 hover:bg-surface-300">
+            <div className="m-2 flex gap-2 rounded-2xl p-2 hover:bg-surface-200">
                 {post.preview?.enabled && (
                     <img
-                        className="aspect-auto max-w-30 bg-black object-cover"
+                        className="aspect-auto max-w-30 rounded-xl border bg-black"
                         src={post.thumbnail}
                         alt=""
                     />
                 )}
 
-                <article>
-                    <p className="text-content-main">
-                        <small className="text-content-main">
-                            u/{post.author}
-                        </small>
-                    </p>
-                    <h2>
-                        <a
-                            target="_blank"
-                            href={`https://www.reddit.com${post.permalink}`}
-                            className="font-bold text-content-strong visited:text-content-main hover:underline"
-                        >
-                            {post.title}
-                        </a>
-                    </h2>
+                <article className="space-y-2">
+                    <div>
+                        <p className="text-content-main">
+                            <small className="text-content-main">
+                                u/{post.author}
+                            </small>
+                        </p>
+                        <h2>
+                            <a
+                                target="_blank"
+                                href={`https://www.reddit.com${post.permalink}`}
+                                className="font-bold text-content-strong visited:text-content-main hover:underline"
+                            >
+                                {post.title}
+                            </a>
+                        </h2>
+                    </div>
 
                     <div className="flex gap-2 text-content-weak">
-                        <div className="flex gap-2 text-content-weak">
-                            <span className="text-inherit">{post.ups}</span>
-                            <span className="text-inherit">
+                        <div className="flex gap-4 rounded-full bg-surface-400 px-2">
+                            <span className="flex items-center">
+                                <TbArrowBigUp />
+                                {post.ups}
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <FaRegComment />
                                 {post.num_comments}
                             </span>
                         </div>
@@ -50,7 +58,7 @@ export const RedditPost = ({ post }: Props) => {
                                         '#000000',
                                 ),
                             }}
-                            className="px-2"
+                            className="rounded-full px-2"
                         >
                             {post.link_flair_text}
                         </span>
