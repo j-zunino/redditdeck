@@ -6,7 +6,10 @@ type GetSubredditParams = {
 };
 
 const getSubreddit = async ({ subreddit, pageParam }: GetSubredditParams) => {
-    const url = new URL(`/reddit/r/${subreddit}.json`, window.location.origin);
+    const url = new URL(
+        `https://www.reddit.com/r/${subreddit}.json`,
+        window.location.origin,
+    );
 
     if (pageParam) url.searchParams.set('after', pageParam);
 
