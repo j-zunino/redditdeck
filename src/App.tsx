@@ -57,13 +57,15 @@ function App() {
 
                 <div className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
-                        <div className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140">
+                        <div
+                            key={sub}
+                            className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140"
+                        >
                             <RedditHeader
-                                key={sub}
                                 subreddit={sub}
                                 onRemove={removeSubreddit}
                             />
-                            <RedditColum key={sub} subreddit={sub} />
+                            <RedditColum subreddit={sub} />
                         </div>
                     ))}
                 </div>
