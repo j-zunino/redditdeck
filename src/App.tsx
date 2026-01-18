@@ -15,6 +15,9 @@ function App() {
     const [subredditInput, setSubredditInput] = useState('');
 
     const [addSubredditModal, setAddSubredditModal] = useState(false);
+    const [warningModal, setWarningModal] = useState(
+        () => !localStorage.getItem('hideWarningModal'),
+    );
 
     return (
         <>
@@ -110,6 +113,48 @@ function App() {
                             <TbPlus size={24} />
                         </button>
                     </form>
+                </Modal>
+            )}
+
+            {warningModal && (
+                <Modal onClose={() => setWarningModal(false)}>
+                    <h2 className="text-center text-xl font-bold">
+                        Client-side limitations
+                    </h2>
+                    <div className="max-w-120 space-y-1.5 text-pretty">
+                        <p className="text-content-weak">
+                            This page fetches data directly from Reddit.
+                            <br />
+                            Reddit may <b>rate-limit</b> or{' '}
+                            <b>temporarily block requests</b>.
+                        </p>
+                        <p className="text-content-weak">
+                            If posts don't load or stop loading, this is a
+                            platform limitation, not an issue with your browser.
+                        </p>
+                    </div>
+
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => {
+                                localStorage.setItem(
+                                    'hideWarningModal',
+                                    'true',
+                                );
+                                setWarningModal(false);
+                            }}
+                            className="w-full rounded-full bg-surface-400 p-1 hover:bg-surface-500 text-content-weak"
+                        >
+                            Don't show again
+                        </button>
+
+                        <button
+                            onClick={() => setWarningModal(false)}
+                            className="w-full rounded-full bg-brand-main p-1 hover:bg-brand-hover"
+                        >
+                            Accept
+                        </button>
+                    </div>
                 </Modal>
             )}
         </>
