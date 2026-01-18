@@ -15,7 +15,6 @@ function App() {
     const [subredditInput, setSubredditInput] = useState('');
 
     const [addSubredditModal, setAddSubredditModal] = useState(false);
-    const [warningModal, setWarningModal] = useState(true);
 
     return (
         <>
@@ -113,15 +112,6 @@ function App() {
                     </form>
                 </Modal>
             )}
-
-                    <button
-                        type="submit"
-                        className="aspect-square rounded-full bg-brand-main p-1 hover:bg-brand-hover"
-                    >
-                        <TbPlus size={24} />
-                    </button>
-                </form>
-            </Modal>
         </>
     );
 }
