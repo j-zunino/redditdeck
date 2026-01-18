@@ -1,4 +1,3 @@
-import { TbTrash } from 'react-icons/tb';
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
 import type { ListingResponse, Post } from '../../types/Subreddit';
@@ -7,10 +6,9 @@ import { Loading } from '../shared';
 
 interface Props {
     subreddit: string;
-    onRemove: (sub: string) => void;
 }
 
-export const RedditColum = ({ subreddit, onRemove }: Props) => {
+export const RedditColum = ({ subreddit }: Props) => {
     const {
         data,
         fetchNextPage,
@@ -35,20 +33,6 @@ export const RedditColum = ({ subreddit, onRemove }: Props) => {
         ) ?? [];
 
     return (
-        <div className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140">
-            <header className="flex shrink-0 items-center justify-between border-b p-2">
-                <h3 className="text-md w-full">
-                    r/<strong className="capitalize">{subreddit}</strong>
-                </h3>
-
-                <button
-                    onClick={() => onRemove(subreddit)}
-                    className="aspect-square rounded-full p-1 hover:bg-surface-300"
-                >
-                    <TbTrash size={24} className="text-inherit" />
-                </button>
-            </header>
-
             <div className="overflow-x-hidden overflow-y-auto">
                 {posts.map((post: Post) => (
                     <RedditPost key={post.id} post={post} />

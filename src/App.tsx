@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { TbBrandGithub, TbPlus } from 'react-icons/tb';
 import { Modal } from './components/shared';
-import { RedditColum } from './components/specific';
+import { RedditColum, RedditHeader } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 import { handleClose, handleOpen } from './utils';
 
@@ -55,13 +55,16 @@ function App() {
                     </div>
                 </div>
 
-                <div className="flex h-full max-h-screen w-full overflow-x-auto overflow-y-hidden">
+                <div className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
-                        <RedditColum
-                            key={sub}
-                            subreddit={sub}
-                            onRemove={removeSubreddit}
-                        />
+                        <div className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140">
+                            <RedditHeader
+                                key={sub}
+                                subreddit={sub}
+                                onRemove={removeSubreddit}
+                            />
+                            <RedditColum key={sub} subreddit={sub} />
+                        </div>
                     ))}
                 </div>
             </div>
