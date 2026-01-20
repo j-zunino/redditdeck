@@ -38,8 +38,8 @@ export const RedditColum = ({ subreddit }: Props) => {
             <div className="flex h-full flex-col items-center justify-center p-2">
                 <TbMoodConfuzedFilled size={80} />
                 <p className="max-w-100 text-pretty">
-                    Looks like Reddit may have <b>rate-limited</b> or{' '}
-                    <b>temporarily block requests</b>, please try agarin later.
+                    Reddit may have <b>rate-limited</b> or{' '}
+                    <b>temporarily block requests</b>, please try again later.
                 </p>
             </div>
         );
