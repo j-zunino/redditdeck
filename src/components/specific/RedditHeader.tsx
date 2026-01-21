@@ -7,7 +7,7 @@ interface Props {
 
 export const RedditHeader = ({ subreddit, onRemove }: Props) => {
     return (
-        <header className="flex shrink-0 items-center justify-between border-b p-2">
+        <header className="flex shrink-0 items-center justify-between border-b px-4 py-2">
             <h3 className="text-md w-full">
                 r/<strong className="capitalize">{subreddit}</strong>
             </h3>
