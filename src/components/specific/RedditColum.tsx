@@ -1,7 +1,7 @@
 import { TbMoodConfuzedFilled } from 'react-icons/tb';
 import { useSubreddit } from '../../hooks';
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll';
-import type { ListingResponse, Post } from '../../types/Subreddit';
+import type { Post } from '../../types/Subreddit';
 import { Loading } from '../shared';
 import { RedditPost } from './RedditPost';
 
@@ -47,7 +47,7 @@ export const RedditColum = ({ subreddit }: Props) => {
 
     const posts =
         data.pages.flatMap((page) =>
-            page.data.children.map((c: ListingResponse) => c.data),
+            page.data.children.map((c: { data: Post }) => c.data),
         ) ?? [];
 
     return (

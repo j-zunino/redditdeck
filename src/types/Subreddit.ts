@@ -1,34 +1,4 @@
-export interface ApiResponse {
-    isPending: boolean;
-    isSuccess: boolean;
-    isError: boolean;
-    data: ListingResponse;
-    dataUpdatedAt: number;
-    error: null | unknown;
-    errorUpdatedAt: number;
-    isFetching: boolean;
-}
-
-export interface ListingResponse {
-    kind: string;
-    data: ListingData;
-}
-
-export interface ListingData {
-    after: string | null;
-    dist: number | null;
-    modhash: string;
-    geo_filter: string | null;
-    children: Child[];
-    before: string | null;
-}
-
-export interface Child {
-    kind: string;
-    data: Post;
-}
-
-export interface Post {
+export type Post = {
     subreddit?: string;
     selftext?: string;
     author_fullname?: string;
@@ -98,8 +68,7 @@ export interface Post {
     num_crossposts?: number;
     media?: null | Record<string, unknown>;
     is_video?: boolean;
-    [key: string]: unknown;
-}
+};
 
 export interface Preview {
     images: PreviewImage[];

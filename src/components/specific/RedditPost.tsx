@@ -1,5 +1,5 @@
 import { TbArrowBigUp, TbMessageCircle } from 'react-icons/tb';
-import type { Post } from '../../types/Subreddit';
+import type { Post } from '../../types';
 import { getReadableTextColor } from '../../utils';
 
 interface Props {
