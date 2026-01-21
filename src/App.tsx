@@ -40,7 +40,7 @@ function App() {
                 </aside>
 
                 <div className="fixed bottom-0 z-5 mb-2 flex w-full justify-center md:hidden">
-                    <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2">
+                    <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2 shadow-md shadow-surface-100">
                         <button
                             onClick={() => setAddSubredditModal(true)}
                             className="aspect-square rounded-full p-1 hover:bg-surface-300"
