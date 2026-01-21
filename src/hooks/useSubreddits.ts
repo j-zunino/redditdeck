@@ -25,7 +25,7 @@ export const useSubreddits = () => {
 
     const addSubreddit = useCallback((e: FormEvent, subreddit: string) => {
         e.preventDefault();
-        const normalized = subreddit.toLowerCase();
+        const normalized = subreddit.toLowerCase().trim();
 
         setSubreddits((prev) => {
             if (prev.includes(normalized)) return prev;
