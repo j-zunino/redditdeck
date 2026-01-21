@@ -39,7 +39,7 @@ function App() {
                     </a>
                 </aside>
 
-                <div className="fixed bottom-0 mb-2 flex w-full justify-center md:hidden">
+                <div className="fixed bottom-0 z-5 mb-2 flex w-full justify-center md:hidden">
                     <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2">
                         <button
                             onClick={() => setAddSubredditModal(true)}
@@ -143,7 +143,7 @@ function App() {
                                 );
                                 setWarningModal(false);
                             }}
-                            className="w-full rounded-full bg-surface-400 p-1 hover:bg-surface-500 text-content-weak"
+                            className="w-full rounded-full bg-surface-400 p-1 text-content-weak hover:bg-surface-500"
                         >
                             Don't show again
                         </button>

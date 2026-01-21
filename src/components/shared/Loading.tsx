@@ -1,6 +1,6 @@
 export const Loading = () => {
     return (
-        <div className="relative flex items-center justify-center">
+        <div className="relative z-0 flex items-center justify-center">
             <img
                 src="/favicon.svg"
                 alt="Loading..."
