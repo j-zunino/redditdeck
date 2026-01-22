@@ -6,10 +6,9 @@ import { useSubreddits } from './hooks/useSubreddits';
 
 // TODO:
 // - Improve modal input performance/redraws?
-// - Create more types?
+// - Improve types
 // - Add back/foward navigation
-// - Loading state
-// - Add errors messages
+// - Improve mobile RedditPost
 function App() {
     const { subreddits, addSubreddit, removeSubreddit } = useSubreddits();
     const [subredditInput, setSubredditInput] = useState('');
