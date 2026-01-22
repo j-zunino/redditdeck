@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { TbX } from 'react-icons/tb';
+import { Button } from './Button';
 
 interface Props {
     children: ReactNode;
@@ -23,12 +24,11 @@ export const Modal = ({ children, onClose }: Props) => {
             <div className="flex h-full w-full flex-col items-center justify-center">
                 <div className="flex flex-col space-y-4 rounded-2xl bg-surface-300 p-4">
                     <div className="flex w-full justify-end">
-                        <button
+                        <Button
                             onClick={onClose}
-                            className="aspect-square rounded-full bg-surface-400 p-1 text-content-weak hover:bg-surface-500 hover:text-content-main"
-                        >
-                            <TbX size={24} className="text-inherit" />
-                        </button>
+                            variant="modal"
+                            icon={<TbX size={24} />}
+                        />
                     </div>
 
                     {children}

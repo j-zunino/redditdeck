@@ -44,7 +44,9 @@
         scrollbar-width: thin;
         scrollbar-color: var(--color-surface-200) transparent !important;
     }
-    path {
-        color: inherit;
+
+    path,
+    svg {
+        color: inherit !important;
     }
 }

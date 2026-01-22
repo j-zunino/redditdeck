@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TbBrandGithub, TbPlus } from 'react-icons/tb';
-import { Modal } from './components/shared';
+import { Button, Modal } from './components/shared';
 import { RedditColum, RedditHeader } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 
@@ -23,12 +23,10 @@ function App() {
         <>
             <div className="flex">
                 <aside className="hidden h-screen flex-col justify-between border-r p-2 md:flex">
-                    <button
+                    <Button
                         onClick={() => setAddSubredditModal(true)}
-                        className="aspect-square rounded-full p-1 hover:bg-surface-300"
-                    >
-                        <TbPlus size={24} />
-                    </button>
+                        icon={<TbPlus size={24} />}
+                    />
 
                     <a
                         href="https://github.com/j-zunino/redditdeck"
@@ -41,12 +39,10 @@ function App() {
 
                 <div className="fixed bottom-0 z-5 mb-2 flex w-full justify-center md:hidden">
                     <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2 shadow-md shadow-surface-100">
-                        <button
+                        <Button
                             onClick={() => setAddSubredditModal(true)}
-                            className="aspect-square rounded-full p-1 hover:bg-surface-300"
-                        >
-                            <TbPlus size={24} />
-                        </button>
+                            icon={<TbPlus size={24} />}
+                        />
 
                         <a
                             href="https://github.com/j-zunino/redditdeck"
@@ -106,12 +102,11 @@ function App() {
                             />
                         </label>
 
-                        <button
+                        <Button
                             type="submit"
-                            className="aspect-square rounded-full bg-brand-main p-1 hover:bg-brand-hover"
-                        >
-                            <TbPlus size={24} />
-                        </button>
+                            variant="accent"
+                            icon={<TbPlus size={24} />}
+                        />
                     </form>
                 </Modal>
             )}
@@ -135,7 +130,10 @@ function App() {
                     </div>
 
                     <div className="flex gap-2">
-                        <button
+                        <Button
+                            label="Don't show again"
+                            variant="modal"
+                            className="w-full"
                             onClick={() => {
                                 localStorage.setItem(
                                     'hideWarningModal',
@@ -143,17 +141,16 @@ function App() {
                                 );
                                 setWarningModal(false);
                             }}
-                            className="w-full rounded-full bg-surface-400 p-1 text-content-weak hover:bg-surface-500"
-                        >
-                            Don't show again
-                        </button>
+                        />
 
-                        <button
-                            onClick={() => setWarningModal(false)}
-                            className="w-full rounded-full bg-brand-main p-1 hover:bg-brand-hover"
-                        >
-                            Accept
-                        </button>
+                        <Button
+                            label="Accept"
+                            variant="accent"
+                            className="w-full"
+                            onClick={() => {
+                                setWarningModal(false);
+                            }}
+                        />
                     </div>
                 </Modal>
             )}
