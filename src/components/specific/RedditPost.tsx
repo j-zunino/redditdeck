@@ -2,6 +2,7 @@ import { TbArrowBigUp, TbMessageCircle } from 'react-icons/tb';
 import type { Post } from '../../types';
 import { getReadableTextColor } from '../../utils';
 import { PostFlair } from './PostFlair';
+import { PostStats } from './PostStats';
 
 interface Props {
     post: Post;
@@ -37,17 +38,11 @@ export const RedditPost = ({ post }: Props) => {
                         </h2>
                     </div>
 
-                    <div className="flex gap-2 text-content-weak">
-                        <div className="flex gap-4 rounded-full bg-surface-400 px-2">
-                            <span className="flex items-center gap-1">
-                                <TbArrowBigUp size={20} />
-                                {post.ups}
-                            </span>
-                            <span className="flex items-center gap-1">
-                                <TbMessageCircle size={20} />
-                                {post.num_comments}
-                            </span>
-                        </div>
+                    <div className="flex flex-wrap gap-2 text-content-weak">
+                        <PostStats
+                            ups={post.ups}
+                            comments={post.num_comments}
+                        />
 
                         {post.link_flair_text && (
                             <PostFlair

@@ -3,3 +3,4 @@ export { RedditColum } from './RedditColum.tsx';
 export { RedditHeader } from './RedditHeader.tsx';
 export { Sidebar } from './Sidebar.tsx';
 export { PostFlair } from './PostFlair.tsx';
+export { PostStats } from './PostStats.tsx';
