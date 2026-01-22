@@ -1,6 +1,4 @@
-import { TbArrowBigUp, TbMessageCircle } from 'react-icons/tb';
 import type { Post } from '../../types';
-import { getReadableTextColor } from '../../utils';
 import { PostFlair } from './PostFlair';
 import { PostStats } from './PostStats';
 
