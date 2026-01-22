@@ -1,6 +1,7 @@
 import { TbArrowBigUp, TbMessageCircle } from 'react-icons/tb';
 import type { Post } from '../../types';
 import { getReadableTextColor } from '../../utils';
+import { PostFlair } from './PostFlair';
 
 interface Props {
     post: Post;
@@ -48,19 +49,12 @@ export const RedditPost = ({ post }: Props) => {
                             </span>
                         </div>
 
-                        <span
-                            style={{
-                                backgroundColor:
-                                    post.link_flair_background_color,
-                                color: getReadableTextColor(
-                                    post.link_flair_background_color ||
-                                        '#000000',
-                                ),
-                            }}
-                            className="rounded-full px-2"
-                        >
-                            {post.link_flair_text}
-                        </span>
+                        {post.link_flair_text && (
+                            <PostFlair
+                                label={post.link_flair_text}
+                                background={post.link_flair_background_color}
+                            />
+                        )}
                     </div>
                 </article>
             </div>

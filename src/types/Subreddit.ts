@@ -14,7 +14,7 @@ export type Post = {
     hide_score?: boolean;
     name?: string;
     quarantine?: boolean;
-    link_flair_text_color?: string | null;
+    link_flair_text_color: string | null;
     upvote_ratio?: number | null;
     author_flair_background_color?: string | null;
     subreddit_type?: string;
@@ -29,7 +29,7 @@ export type Post = {
     is_meta?: boolean;
     category?: string | null;
     secure_media_embed?: Record<string, unknown>;
-    link_flair_text?: string | null;
+    link_flair_text: string | null;
     score?: number;
     is_created_from_ads_ui?: boolean;
     thumbnail?: string;
@@ -56,7 +56,7 @@ export type Post = {
     visited?: boolean;
     removed_by?: string | null;
     subreddit_id?: string;
-    link_flair_background_color?: string;
+    link_flair_background_color: string;
     id?: string;
     author?: string;
     discussion_type?: string | null;
