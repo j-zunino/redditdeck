@@ -1,6 +1,6 @@
 import { TbMoodConfuzedFilled } from 'react-icons/tb';
-import type { Post } from '../../types/Subreddit';
 import { useInfiniteScroll, useSubreddit } from '../../hooks';
+import type { Post } from '../../types';
 import { Loading } from '../shared';
 import { RedditPost } from './RedditPost';
 
