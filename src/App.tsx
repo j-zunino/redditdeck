@@ -38,9 +38,9 @@ function App() {
                     </a>
                 </Sidebar>
 
-                <div className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
+                <main className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
-                        <div
+                        <section
                             key={sub}
                             className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140"
                         >
@@ -49,9 +49,9 @@ function App() {
                                 onRemove={removeSubreddit}
                             />
                             <RedditColum subreddit={sub} />
-                        </div>
+                        </section>
                     ))}
-                </div>
+                </main>
             </div>
 
             {addSubredditModal && (
