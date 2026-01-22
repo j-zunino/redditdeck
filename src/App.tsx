@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TbBrandGithub, TbPlus } from 'react-icons/tb';
 import { Button, Modal } from './components/shared';
-import { RedditColum, RedditHeader } from './components/specific';
+import { RedditColum, RedditHeader, Sidebar } from './components/specific';
 import { useSubreddits } from './hooks/useSubreddits';
 
 // TODO:
@@ -22,7 +22,7 @@ function App() {
     return (
         <>
             <div className="flex">
-                <aside className="hidden h-screen flex-col justify-between border-r p-2 md:flex">
+                <Sidebar>
                     <Button
                         onClick={() => setAddSubredditModal(true)}
                         icon={<TbPlus size={24} />}
@@ -31,28 +31,12 @@ function App() {
                     <a
                         href="https://github.com/j-zunino/redditdeck"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="aspect-square rounded-full p-1 hover:bg-surface-300"
                     >
                         <TbBrandGithub size={24} />
                     </a>
-                </aside>
-
-                <div className="fixed bottom-0 z-5 mb-2 flex w-full justify-center md:hidden">
-                    <div className="flex justify-between gap-6 rounded-full border bg-surface-100 p-2 shadow-md shadow-surface-100">
-                        <Button
-                            onClick={() => setAddSubredditModal(true)}
-                            icon={<TbPlus size={24} />}
-                        />
-
-                        <a
-                            href="https://github.com/j-zunino/redditdeck"
-                            target="_blank"
-                            className="aspect-square rounded-full p-1 hover:bg-surface-300"
-                        >
-                            <TbBrandGithub size={24} />
-                        </a>
-                    </div>
-                </div>
+                </Sidebar>
 
                 <div className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
