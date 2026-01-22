@@ -11,5 +11,5 @@ const desktop =
     'md:static md:translate-x-0 md:h-screen md:flex-col gap-2 md:rounded-none md:border-0 md:border-r md:bg-transparent md:shadow-transparent';
 
 export const Sidebar = ({ children }: Props) => {
-    return <nav className={`${mobile} ${desktop}`}>{children}</nav>;
+    return <nav className={`${mobile} ${desktop} z-5`}>{children}</nav>;
 };
