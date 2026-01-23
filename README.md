@@ -1,4 +1,4 @@
-<img src="./public/favicon.svg" width="180" alt="logo">
+<img src="./public/logo.svg" width="180" alt="logo">
 
 <h1>RedditDeck</h1>
 

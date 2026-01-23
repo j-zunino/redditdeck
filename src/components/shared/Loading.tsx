@@ -1,15 +1,10 @@
 export const Loading = () => {
     return (
-        <div className="relative z-0 flex items-center justify-center">
+        <div className="relative z-10 flex items-center justify-center">
             <img
-                src="/favicon.svg"
+                src="/logo.svg"
                 alt="Loading..."
-                className="absolute max-h-11 animate-ping"
-            />
-            <img
-                src="/favicon.svg"
-                alt="Loading..."
-                className="relative max-h-14"
+                className="relative h-24 animate-pulse"
             />
         </div>
     );
