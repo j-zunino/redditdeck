@@ -1,4 +1,4 @@
-import { useCallback, useState, type FormEvent } from 'react';
+import { useCallback, useState } from 'react';
 import { config } from '../config';
 
 const getSubredditsFromUrl = (): Array<string> => {
@@ -23,9 +23,9 @@ export const useSubreddits = () => {
         getSubredditsFromUrl(),
     );
 
-    const addSubreddit = useCallback((e: FormEvent, subreddit: string) => {
-        e.preventDefault();
+    const addSubreddit = useCallback((subreddit: string) => {
         const normalized = subreddit.toLowerCase().trim();
+        if (!normalized) return;
 
         setSubreddits((prev) => {
             if (prev.includes(normalized)) return prev;

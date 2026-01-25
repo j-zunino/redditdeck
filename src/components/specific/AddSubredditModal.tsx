@@ -1,15 +1,28 @@
-import { useState, type Dispatch } from 'react';
+import { useRef, type Dispatch, type FormEvent } from 'react';
 import { TbPlus } from 'react-icons/tb';
-import { useSubreddits } from '../../hooks/useSubreddits';
 import { Button, Modal } from '../shared';
 
 interface Props {
     state: Dispatch<React.SetStateAction<boolean>>;
+    addSubreddit: (subreddit: string) => void;
 }
 
-export const AddSubredditModal = ({ state }: Props) => {
-    const { addSubreddit } = useSubreddits();
-    const [subredditInput, setSubredditInput] = useState('');
+export const AddSubredditModal = ({ state, addSubreddit }: Props) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    const onSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
+        const value = inputRef.current?.value
+            .trim()
+            .toLowerCase()
+            .replace(/^\/?r\//, '');
+
+        if (!value) return;
+
+        addSubreddit(value);
+        state(false);
+    };
 
     return (
         <Modal onClose={() => state(false)}>
@@ -19,22 +32,17 @@ export const AddSubredditModal = ({ state }: Props) => {
             </div>
 
             <form
-                onSubmit={(e) => {
-                    addSubreddit(e, subredditInput);
-                    state(false);
-                    setSubredditInput('');
-                }}
+                onSubmit={(e) => onSubmit(e)}
                 className="flex max-w-100 gap-2"
             >
                 <label className="flex w-full flex-col rounded-full border bg-surface-400 px-2">
                     <input
+                        ref={inputRef}
                         type="text"
                         placeholder="neovim"
                         name="addSubredditInput"
                         autoComplete="off"
-                        required={true}
-                        value={subredditInput}
-                        onChange={(e) => setSubredditInput(e.target.value)}
+                        required
                         className="h-full px-2 outline-0"
                     />
                 </label>

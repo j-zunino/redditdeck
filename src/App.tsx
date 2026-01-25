@@ -11,12 +11,12 @@ import {
 import { useSubreddits } from './hooks/useSubreddits';
 
 // TODO:
-// - Improve modal input performance/redraws?
+// - Prevent redraws?
 // - Improve types
 // - Add back/foward navigation
 // - Improve mobile RedditPost
 function App() {
-    const { subreddits, removeSubreddit } = useSubreddits();
+    const { subreddits, addSubreddit, removeSubreddit } = useSubreddits();
 
     const [isAddSubredditOpen, setIsAddSubredditOpen] = useState(false);
     const [isWarningOpen, setIsWarningOpen] = useState(
@@ -59,7 +59,10 @@ function App() {
             </div>
 
             {isAddSubredditOpen && (
-                <AddSubredditModal state={setIsAddSubredditOpen} />
+                <AddSubredditModal
+                    state={setIsAddSubredditOpen}
+                    addSubreddit={addSubreddit}
+                />
             )}
 
             {isWarningOpen && <WarningModal state={setIsWarningOpen} />}
