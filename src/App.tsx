@@ -18,8 +18,8 @@ import { useSubreddits } from './hooks/useSubreddits';
 function App() {
     const { subreddits, removeSubreddit } = useSubreddits();
 
-    const [addSubredditModal, setAddSubredditModal] = useState(false);
-    const [warningModal, setWarningModal] = useState(
+    const [isAddSubredditOpen, setIsAddSubredditOpen] = useState(false);
+    const [isWarningOpen, setIsWarningOpen] = useState(
         () => !localStorage.getItem('hideWarningModal'),
     );
 
@@ -28,7 +28,7 @@ function App() {
             <div className="flex">
                 <Sidebar>
                     <Button
-                        onClick={() => setAddSubredditModal(true)}
+                        onClick={() => setIsAddSubredditOpen(true)}
                         icon={<TbPlus size={24} />}
                     />
 
@@ -58,11 +58,11 @@ function App() {
                 </main>
             </div>
 
-            {addSubredditModal && (
-                <AddSubredditModal state={setAddSubredditModal} />
+            {isAddSubredditOpen && (
+                <AddSubredditModal state={setIsAddSubredditOpen} />
             )}
 
-            {warningModal && <WarningModal state={setWarningModal} />}
+            {isWarningOpen && <WarningModal state={setIsWarningOpen} />}
         </>
     );
 }
