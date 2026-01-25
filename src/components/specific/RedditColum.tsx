@@ -57,7 +57,7 @@ export const RedditColum = ({ subreddit }: Props) => {
 
             <div
                 ref={loadMoreRef}
-                className="mb-24 animate-pulse py-8 text-center"
+                className="min-h-24 animate-pulse text-center"
             >
                 {isFetchingNextPage && <Loading />}
             </div>
