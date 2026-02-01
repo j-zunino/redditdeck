@@ -32,7 +32,7 @@ export function ResizableContent({
 
     const onPointerUp = () => {
         document.body.style.cursor = 'unset';
-        document.body.style.userSelect = 'none';
+        document.body.style.userSelect = 'unset';
         document.removeEventListener('pointermove', onPointerMove);
         document.removeEventListener('pointerup', onPointerUp);
     };
