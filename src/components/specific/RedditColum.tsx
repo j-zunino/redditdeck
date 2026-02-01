@@ -1,7 +1,7 @@
-import { TbMoodConfuzedFilled } from 'react-icons/tb';
+import { TbMoodConfuzedFilled, TbReload } from 'react-icons/tb';
 import { useInfiniteScroll, useSubreddit } from '../../hooks';
 import type { Post } from '../../types';
-import { Loading } from '../shared';
+import { Button, Loading } from '../shared';
 import { RedditPost } from './RedditPost';
 
 interface Props {
@@ -16,6 +16,7 @@ export const RedditColum = ({ subreddit }: Props) => {
         isFetchingNextPage,
         isLoading,
         isError,
+        refetch,
     } = useSubreddit(subreddit);
 
     const loadMoreRef = useInfiniteScroll(() => {
@@ -34,12 +35,18 @@ export const RedditColum = ({ subreddit }: Props) => {
 
     if (isError || !data) {
         return (
-            <div className="flex h-full flex-col items-center justify-center p-2">
+            <div className="flex h-full flex-col items-center justify-center space-y-4 p-2">
                 <TbMoodConfuzedFilled size={80} />
                 <p className="max-w-100 text-pretty">
                     Reddit may have <b>rate-limited</b> or{' '}
                     <b>temporarily block requests</b>, please try again later.
                 </p>
+
+                <Button
+                    onClick={() => refetch()}
+                    icon={<TbReload size={24} />}
+                    label="Try again"
+                />
             </div>
         );
     }
