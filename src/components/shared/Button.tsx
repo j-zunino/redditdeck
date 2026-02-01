@@ -23,7 +23,7 @@ export const Button = ({
     return (
         <button
             type="button"
-            className={`${VARIANT_STYLES[variant]} ${className} flex cursor-pointer items-center justify-center gap-1 rounded-full  p-1`}
+            className={`${VARIANT_STYLES[variant]} ${className} ${label && icon && 'pr-2'} flex cursor-pointer items-center justify-center gap-1 rounded-full p-1`}
             {...props}
         >
             {icon && <span className="text-inherit">{icon}</span>}
