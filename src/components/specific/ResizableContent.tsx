@@ -38,12 +38,15 @@ export function ResizableContent({
     };
 
     return (
-        <section style={{ width }} className="relative flex shrink-0 flex-col">
+        <section
+            style={{ width }}
+            className="relative flex shrink-0 flex-col border-r md:border-none"
+        >
             {children}
 
             <div
                 onPointerDown={onPointerDown}
-                className="absolute right-0 z-10 hidden h-full cursor-col-resize border-r transition-colors after:absolute after:inset-y-0 after:-right-2.5 after:w-5 after:content-[''] hover:border-brand-hover active:border-brand-main md:block"
+                className="absolute right-0 z-10 hidden h-full cursor-col-resize border-r transition-colors after:absolute after:inset-y-0 after:-right-2.5 after:w-5 after:content-[''] hover:border-brand-hover active:border-brand-main md:block md:block"
             />
         </section>
     );
