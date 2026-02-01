@@ -6,3 +6,4 @@ export { RedditHeader } from './RedditHeader.tsx';
 export { RedditPost } from './RedditPost.tsx';
 export { Sidebar } from './Sidebar.tsx';
 export { WarningModal } from './WarningModal.tsx';
+export { ResizableContent } from './ResizableContent.tsx';

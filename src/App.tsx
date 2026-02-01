@@ -5,6 +5,7 @@ import {
     AddSubredditModal,
     RedditColum,
     RedditHeader,
+    ResizableContent,
     Sidebar,
     WarningModal,
 } from './components/specific';
@@ -42,18 +43,15 @@ function App() {
                     </a>
                 </Sidebar>
 
-                <main className="flex h-screen max-h-screen w-full overflow-x-auto overflow-y-hidden">
+                <main className="flex h-screen w-full overflow-x-auto overflow-y-hidden">
                     {subreddits.map((sub) => (
-                        <section
-                            key={sub}
-                            className="flex w-full min-w-[95dvw] flex-col border-r sm:min-w-140"
-                        >
+                        <ResizableContent key={sub}>
                             <RedditHeader
                                 subreddit={sub}
                                 onRemove={removeSubreddit}
                             />
                             <RedditColum subreddit={sub} />
-                        </section>
+                        </ResizableContent>
                     ))}
                 </main>
             </div>
