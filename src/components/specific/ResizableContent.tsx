@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 
 interface Props {
-    children: React.ReactNode;
+    children: ReactNode;
     minWidth?: number;
     initialWidth?: number;
 }
