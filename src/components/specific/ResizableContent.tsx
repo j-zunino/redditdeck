@@ -48,7 +48,7 @@ export function ResizableContent({
                 onPointerDown={onPointerDown}
                 className="group absolute right-0 z-10 hidden h-full cursor-col-resize border-r transition-colors after:absolute after:inset-y-0 after:-right-2.5 after:w-5 after:content-[''] hover:border-brand-hover active:border-brand-main md:block"
             >
-                <span className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-surface-300 px-2 py-0.5 opacity-0 shadow-md shadow-surface-100 transition-opacity group-hover:opacity-100 group-active:opacity-100">
+                <span className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 rounded-full bg-surface-300 px-2 opacity-0 shadow-md shadow-surface-100 transition-opacity group-hover:opacity-100 group-active:opacity-100">
                     <span className="text-content-strong">
                         {Math.trunc(width)}
                     </span>
