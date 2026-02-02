@@ -1,4 +1,5 @@
-import { useRef, useState, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
+import { useHorizontalResize } from '../../hooks';
 
 interface Props {
     children: ReactNode;
@@ -11,31 +12,10 @@ export function ResizableContent({
     minWidth = 300,
     initialWidth = 300,
 }: Props) {
-    const [width, setWidth] = useState(initialWidth);
-    const startX = useRef(0);
-    const startWidth = useRef(0);
-
-    const onPointerDown = (e: React.PointerEvent) => {
-        startX.current = e.clientX;
-        startWidth.current = width;
-
-        document.body.style.cursor = 'col-resize';
-        document.body.style.userSelect = 'none';
-        document.addEventListener('pointermove', onPointerMove);
-        document.addEventListener('pointerup', onPointerUp);
-    };
-
-    const onPointerMove = (e: PointerEvent) => {
-        const delta = e.clientX - startX.current;
-        setWidth(Math.max(minWidth, startWidth.current + delta));
-    };
-
-    const onPointerUp = () => {
-        document.body.style.cursor = 'unset';
-        document.body.style.userSelect = 'unset';
-        document.removeEventListener('pointermove', onPointerMove);
-        document.removeEventListener('pointerup', onPointerUp);
-    };
+    const { width, onPointerDown } = useHorizontalResize({
+        minWidth,
+        initialWidth,
+    });
 
     return (
         <section
