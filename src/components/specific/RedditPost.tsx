@@ -25,7 +25,7 @@ export const RedditPost = ({ post }: Props) => {
                                 u/{post.author}
                             </small>
                         </p>
-                        <h2>
+                        <h3>
                             <a
                                 target="_blank"
                                 href={`https://www.reddit.com${post.permalink}`}
@@ -33,7 +33,7 @@ export const RedditPost = ({ post }: Props) => {
                             >
                                 {post.title}
                             </a>
-                        </h2>
+                        </h3>
                     </header>
 
                     <div className="flex flex-wrap gap-2">
