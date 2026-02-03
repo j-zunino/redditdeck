@@ -13,7 +13,7 @@ export const PostFlair = ({ label, background }: Props) => {
                 backgroundColor: background,
                 color: getReadableTextColor(background),
             }}
-            className="rounded-full px-2"
+            className="rounded-2xl px-2"
         >
             {label}
         </span>
