@@ -4,7 +4,7 @@ export const Loading = () => {
             <img
                 src="/logo.svg"
                 alt="Loading..."
-                className="relative h-24 animate-pulse"
+                className="relative h-24 animate-pulse duration-[0.5ms]"
             />
         </div>
     );
