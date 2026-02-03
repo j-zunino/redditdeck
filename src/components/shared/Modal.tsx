@@ -25,6 +25,7 @@ export const Modal = ({ children, onClose }: Props) => {
                 <div className="flex flex-col space-y-4 rounded-2xl bg-surface-300 p-4">
                     <div className="flex w-full justify-end">
                         <Button
+                            aria-label="Close active modal"
                             onClick={onClose}
                             variant="modal"
                             icon={<TbX size={24} />}

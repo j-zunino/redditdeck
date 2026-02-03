@@ -29,6 +29,7 @@ function App() {
             <div className="flex">
                 <Sidebar>
                     <Button
+                        aria-label="Add subreddit"
                         onClick={() => setIsAddSubredditOpen(true)}
                         icon={<TbPlus size={24} />}
                     />
@@ -37,6 +38,7 @@ function App() {
                         href="https://github.com/j-zunino/redditdeck"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Open the Github repository"
                         className="aspect-square rounded-full p-1 hover:bg-surface-300"
                     >
                         <TbBrandGithub size={24} />

@@ -48,6 +48,7 @@ export const AddSubredditModal = ({ state, addSubreddit }: Props) => {
                 </label>
 
                 <Button
+                    aria-label="Add subreddit"
                     type="submit"
                     variant="accent"
                     icon={<TbPlus size={24} />}

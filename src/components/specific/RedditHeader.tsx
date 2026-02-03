@@ -17,6 +17,7 @@ export const RedditHeader = ({ subreddit, onRemove }: Props) => {
             </h3>
 
             <Button
+                aria-label="Remove subreddit"
                 onClick={() => onRemove(subreddit)}
                 icon={<TbTrash size={24} />}
             />
