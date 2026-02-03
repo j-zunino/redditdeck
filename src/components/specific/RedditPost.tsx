@@ -9,19 +9,19 @@ interface Props {
 export const RedditPost = ({ post }: Props) => {
     return (
         <>
-            <div className="m-2 flex gap-2 rounded-2xl p-2 hover:bg-surface-200">
+            <article className="m-2 flex flex-wrap-reverse gap-2 rounded-2xl p-2 hover:bg-surface-200">
                 {post.preview?.enabled && (
                     <img
-                        className="aspect-auto max-w-30 rounded-xl border bg-black"
+                        className="aspect-auto rounded-xl border bg-black object-contain"
                         src={post.thumbnail}
                         alt=""
                     />
                 )}
 
-                <article className="space-y-2">
-                    <div>
+                <div className="flex flex-col gap-2">
+                    <header>
                         <p className="text-content-main">
-                            <small className="text-content-main">
+                            <small className="text-inherit">
                                 u/{post.author}
                             </small>
                         </p>
@@ -34,9 +34,9 @@ export const RedditPost = ({ post }: Props) => {
                                 {post.title}
                             </a>
                         </h2>
-                    </div>
+                    </header>
 
-                    <div className="flex flex-wrap gap-2 text-content-weak">
+                    <div className="flex flex-wrap gap-2">
                         <PostStats
                             ups={post.ups}
                             comments={post.num_comments}
@@ -49,8 +49,8 @@ export const RedditPost = ({ post }: Props) => {
                             />
                         )}
                     </div>
-                </article>
-            </div>
+                </div>
+            </article>
 
             <hr className="mx-2 bg-surface-400" />
         </>
