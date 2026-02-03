@@ -62,10 +62,7 @@ export const RedditColum = ({ subreddit }: Props) => {
                 <RedditPost key={post.id} post={post} />
             ))}
 
-            <div
-                ref={loadMoreRef}
-                className="min-h-24 animate-pulse text-center"
-            >
+            <div ref={loadMoreRef} className="min-h-24 text-center">
                 {isFetchingNextPage && <Loading />}
             </div>
         </div>
